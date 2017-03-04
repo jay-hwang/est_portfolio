@@ -1,4 +1,5 @@
 import React from 'react';
+import SessionFormContainer from '../session/session_form_container';
 
 const NavbarMenu = () => {
   const hideMenu = () => {
@@ -15,6 +16,7 @@ const NavbarMenu = () => {
           <div className='divider'></div>
           <li className='menu-li'>ABOUT</li>
           <div className='divider'></div>
+          <SessionFormContainer />
           <li className='menu-li'>LOG IN</li>
         </ul>
       </div>

@@ -1,8 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
+import configureStore from './store/store';
+
+// user/session test imports
+import {
+  login,
+  logout,
+  signup
+} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const main = document.getElementById('main');
+
+  let store;
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
+
+  // Toggles hidden nav
   $(window).scroll(function() {
     let y = $(this).scrollTop();
     if (y > 500) {
@@ -12,6 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  let main = document.getElementById('main');
-  ReactDOM.render(<Root />, main);
+  window.store = store;
+  window.login = login;
+  window.logout = logout;
+  window.signup = signup;
+
+  ReactDOM.render(<Root store={store} />, main);
 });
+
+// new_user = {
+//   user: {
+//     'first_name': 'new',
+//     'last_name': 'user',
+//     'username': 'test-user',
+//     'password': 'password'
+//   }
+// };
+//
+// jay = {
+//   user: {
+//     'username': 'user-jay',
+//     'password': 'password'
+//   }
+// };
