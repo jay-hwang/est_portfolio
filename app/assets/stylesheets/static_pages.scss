@@ -1,0 +1,36 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#app {
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  transition: filter .2s ease-in;
+}
+
+.btn:hover {
+  transition: filter .2s ease-in;
+  filter: brightness(107%);
+}
+
+.second-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: #fff;
+
+  padding: 0 2px;
+  border-bottom: 3px solid #fff;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  text-shadow: grey 0 0 10px;
+}
+
+.display-none {
+  display: none;
+}

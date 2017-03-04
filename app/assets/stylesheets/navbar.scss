@@ -1,0 +1,123 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: rgba(0,0,0,0);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+}
+
+.box {
+  padding: 0 20px;
+  height: 100%;
+  background: rgba(0,0,0,0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-btn {
+  background: rgba(0,0,0,0);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.hidden-nav {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #2e3842;
+}
+
+.menu-box {
+  cursor: pointer;
+}
+
+.nav-menu {
+  margin-right: 15px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.hamburger {
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-slab {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+
+  margin: 2.5px 0;
+  border-radius: 1px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+
+  height: 100vh;
+  width: 350px;
+  background-color: #83d3c9;
+}
+
+.menu-background {
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+
+  width: 100%;
+  height: 100vh;
+}
+
+.menu-ul {
+  margin: 50px auto;
+
+  width: 100%;
+}
+
+.menu-li {
+  height: 50px;
+
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 15px;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 20px;
+  transition: background .2s ease-in;
+  cursor: pointer;
+}
+
+.divider {
+  width: 90%;
+  height: 1px;
+  background-color: #70c0b6;
+  margin: 0 auto;
+  border-top: -1px;
+}
+
+.menu-li:hover {
+  transition: background .2s ease-in;
+  border: 1px solid #70c0b6;
+  background-color: #70c0b6;
+}
+
+.menu-li:hover + .divider {
+  width: 100%;
+}

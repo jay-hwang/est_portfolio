@@ -1,0 +1,52 @@
+.intro {
+  width: 100%;
+  height: 350px;
+
+  display: flex;
+
+  color: #fff;
+}
+
+.intro-meta {
+  width: 57%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro1-meta {
+  background-color: #2b343d;
+}
+
+.intro2-meta {
+  background-color: #273038;
+}
+
+.meta-title {
+  width: 80%;
+
+  font-weight: 900;
+  letter-spacing: 4px;
+  font-size: 25px;
+
+  padding: 15px;
+}
+
+.meta-body {
+  width: 80%;
+
+  font-size: 17px;
+  letter-spacing: 2px;
+  line-height: 24px;
+
+  padding: 15px;
+}
+
+.intro-img {
+  width: 43%;
+  height: 100%;
+  background-color: lightgrey;
+}
