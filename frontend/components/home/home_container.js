@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import Navbar from './navbar';
+import Home from './home';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
   currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = (dispatch, routerProps) => ({
+const mapDispatchToProps = dispatch => ({
 
 });
 
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(Home);

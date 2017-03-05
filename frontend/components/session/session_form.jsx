@@ -17,6 +17,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.hideSessionForm = this.hideSessionForm.bind(this);
+    this.showSessionForm = this.showSessionForm.bind(this);
   }
 
   handleSubmit(e) {
@@ -32,9 +33,14 @@ class SessionForm extends React.Component {
     };
   }
 
-  hideSessionForm () {
+  hideSessionForm() {
     $(".session").slideUp();
     $('.loginli').fadeIn(350);
+  }
+
+  showSessionForm() {
+    $(".session").slideDown();
+    $('.loginli').fadeOut(325);
   }
 
   render() {
@@ -46,30 +52,33 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <section className='session display-none'>
-        <form className='session-form' onSubmit={ this.handleSubmit }>
-          <input type='text'
-            value={ this.state.username }
-            onChange={ this.handleChange('username') }
-            placeholder='Username'
-            className='session-input' />
+      <div>
+        <section className='session display-none'>
+          <form className='session-form' onSubmit={ this.handleSubmit }>
+            <input type='text'
+              value={ this.state.username }
+              onChange={ this.handleChange('username') }
+              placeholder='Username'
+              className='session-input' />
 
-          <input type='password'
-            value={ this.state.password }
-            onChange={ this.handleChange('password') }
-            placeholder='Password'
-            className='session-input' />
+            <input type='password'
+              value={ this.state.password }
+              onChange={ this.handleChange('password') }
+              placeholder='Password'
+              className='session-input' />
 
-          <ul className='errors'>
-            { this.errorsLi }
-          </ul>
+            <ul className='errors'>
+              { this.errorsLi }
+            </ul>
 
-          <div className='divider'></div>
-          <button className='session-btn'>LOG IN</button>
-          <div className='divider'></div>
-          <div className='session-btn' onClick={ this.hideSessionForm }>CANCEL</div>
-        </form>
-      </section>
+            <div className='divider'></div>
+            <button className='session-btn'>LOG IN</button>
+            <div className='divider'></div>
+            <div className='session-btn' onClick={ this.hideSessionForm }>CANCEL</div>
+          </form>
+        </section>
+        <li className='menu-li loginli' onClick={ this.showSessionForm }>LOG IN</li>
+      </div>
     );
   }
 }

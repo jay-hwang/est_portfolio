@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import NavbarLinks from './navbar_links';
-import NavbarMenu from './navbar_menu';
+import NavbarMenuContainer from './navbar_menu_container';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Navbar extends React.Component {
         <div className='hidden-nav display-none'>
           <NavbarLinks openSubscribe={ this.openSubscribe } />
         </div>
-        <NavbarMenu />
+        <NavbarMenuContainer props={ this.props } />
       </div>
     );
   }

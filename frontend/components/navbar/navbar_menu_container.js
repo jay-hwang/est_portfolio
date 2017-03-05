@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Navbar from './navbar';
+import NavbarMenu from './navbar_menu';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch, routerProps) => ({
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(NavbarMenu);

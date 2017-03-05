@@ -38,19 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Root store={store} />, main);
 });
-
-// new_user = {
-//   user: {
-//     'first_name': 'new',
-//     'last_name': 'user',
-//     'username': 'test-user',
-//     'password': 'password'
-//   }
-// };
-//
-// jay = {
-//   user: {
-//     'username': 'user-jay',
-//     'password': 'password'
-//   }
-// };

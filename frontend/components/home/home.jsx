@@ -9,7 +9,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className='home'>
-        Welcome!
+        Welcome { this.props.currentUser.first_name }!
       </div>
     );
   }
