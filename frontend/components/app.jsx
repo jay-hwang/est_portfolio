@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './home/home';
+import Splash from './splash/splash';
 import Navbar from './navbar/navbar';
 import Footer from './footer/footer';
 import Subscribe from './subscribe/subscribe';
@@ -13,10 +13,9 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        {this.props.children}
         <Navbar />
         <Subscribe />
-        <Home />
+        {this.props.children}
 
         <Footer />
       </div>

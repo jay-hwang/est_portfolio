@@ -12,14 +12,18 @@ class SessionForm extends React.Component {
       password: ''
     };
 
+    this.errorsL = null;
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.hideSessionForm = this.hideSessionForm.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
     this.props.login({ user });
+    this.props.router.push('home');
   }
 
   handleChange(field) {
@@ -28,31 +32,44 @@ class SessionForm extends React.Component {
     };
   }
 
+  hideSessionForm () {
+    $(".session").slideUp();
+    $('.loginli').fadeIn(350);
+  }
+
   render() {
     const errors = this.props.errors;
-    let errorsLi;
     if (errors) {
-      errorsLi = errors.map((error, i) => (
-        <li key={i}>{ error }</li>
+      this.errorsLi = errors.map((error, i) => (
+        <li key={i} className='error'>{ error }</li>
       ));
     }
 
     return (
-      <form className='session' onSubmit={ this.handleSubmit }>
-        <input type='text'
-          value={ this.state.username }
-          onChange={ this.handleChange('username') }
-          placeholder='Username'
-          className='session-input' />
+      <section className='session display-none'>
+        <form className='session-form' onSubmit={ this.handleSubmit }>
+          <input type='text'
+            value={ this.state.username }
+            onChange={ this.handleChange('username') }
+            placeholder='Username'
+            className='session-input' />
 
-        <input type='password'
-          value={ this.state.password }
-          onChange={ this.handleChange('password') }
-          placeholder='Password'
-          className='session-input' />
+          <input type='password'
+            value={ this.state.password }
+            onChange={ this.handleChange('password') }
+            placeholder='Password'
+            className='session-input' />
 
-        <button className='session-btn'>LOG IN</button>
-      </form>
+          <ul className='errors'>
+            { this.errorsLi }
+          </ul>
+
+          <div className='divider'></div>
+          <button className='session-btn'>LOG IN</button>
+          <div className='divider'></div>
+          <div className='session-btn' onClick={ this.hideSessionForm }>CANCEL</div>
+        </form>
+      </section>
     );
   }
 }

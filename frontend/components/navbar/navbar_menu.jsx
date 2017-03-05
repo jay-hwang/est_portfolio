@@ -5,6 +5,13 @@ const NavbarMenu = () => {
   const hideMenu = () => {
     $(".menu-background").fadeOut(200);
     $(".menu").animate({ right: "-=350" }, 200);
+    $(".session").slideUp();
+    $('.loginli').fadeIn(350);
+  };
+
+  const showSessionForm = () => {
+    $(".session").slideDown();
+    $('.loginli').fadeOut(325);
   };
 
   return (
@@ -17,7 +24,7 @@ const NavbarMenu = () => {
           <li className='menu-li'>ABOUT</li>
           <div className='divider'></div>
           <SessionFormContainer />
-          <li className='menu-li'>LOG IN</li>
+          <li className='menu-li loginli' onClick={ showSessionForm }>LOG IN</li>
         </ul>
       </div>
     </div>
