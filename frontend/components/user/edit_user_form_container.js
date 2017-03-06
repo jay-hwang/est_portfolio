@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import EditUserForm from './edit_user_form';
-import { updateUser, deleteUser } from '../../actions/session_actions';
+import { updateUser } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
@@ -8,8 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateUser: user => dispatch(updateUser(user)),
-  deleteUser: userId => dispatch(deleteUser(userId))
+  updateUser: user => dispatch(updateUser(user))
 });
 
 export default connect (

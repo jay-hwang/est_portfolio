@@ -7,10 +7,12 @@ class EditUserForm extends React.Component {
     this.state = {
       first_name: props.currentUser.first_name,
       last_name: props.currentUser.last_name,
-      username: props.currentUser.username,
-      password: props.currentUser.password
+      email: props.currentUser.email,
+      username: props.currentUser.username
     };
   }
+
+  
 }
 
 export default EditUserForm;

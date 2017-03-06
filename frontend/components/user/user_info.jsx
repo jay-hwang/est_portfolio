@@ -1,6 +1,11 @@
 import React from 'react';
 
 const UserInfo = (props) => {
+
+  const handleDeleteUser = () => {
+    
+  };
+
   return (
     <div className='user-info-box flex-center'>
       <div className='user-info'>
@@ -8,34 +13,51 @@ const UserInfo = (props) => {
 
         <section className='user-contents'>
           <div className='user-content'>
-            <div className='attr-name'>Name:</div>
+            <div className='attr-name'>NAME</div>
             <div className='attr-value'>
               { props.currentUser.first_name } { props.currentUser.last_name }
             </div>
-            <div className='attr-edit'>EDIT</div>
-          </div>
-
-          <div className='user-content'>
 
           </div>
 
           <div className='user-content'>
-            <div className='attr-name'>Username:</div>
+            <div className='attr-name'>EMAIL</div>
+            <div className='attr-value'>
+              jay_hwang0121ost@gmail.com
+            </div>
+          </div>
+
+          <div className='user-content'>
+            <div className='attr-name'>USERNAME</div>
             <div className='attr-value'>
               { props.currentUser.username }
             </div>
-            <div className='attr-edit'>EDIT</div>
+
           </div>
         </section>
       </div>
 
       <div className='user-buttons'>
-        <div className='user-button'>CHANGE PASSWORD</div>
-        <div className='user-button'></div>
-        <div className='user-button'>DELETE ACCOUNT</div>
+        <div className='user-button'>
+          <img className='ub-icon' id='password-icon'
+            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488825874/lock_eyvm3p.png' />
+        </div>
+
+        <div className='user-button'>
+          <img className='ub-icon' id='edit-icon'
+            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/edit_tb7zyp.png' />
+        </div>
+
+        <div className='user-button'>
+          <img className='ub-icon' id='delete-icon'
+            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/delete_garaiy.png' />
+        </div>
       </div>
     </div>
   );
 };
+
+// <div className='attr-edit'>EDIT</div>
+// <div className='attr-edit'>EDIT</div>
 
 export default UserInfo;
