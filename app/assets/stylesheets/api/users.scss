@@ -42,12 +42,13 @@
   justify-content: center;
 
   min-width: 300px;
+  width: 400px;
   height: 130px;
   margin-left: -20px;
 }
 
 .user-content {
-  height: 25%;
+  height: 30px;
   width: 100%;
   min-width: 200px;
   display: flex;
@@ -55,11 +56,11 @@
 }
 
 .attr-name {
-  width: 48%;
+  width: 35%;
 }
 
 .attr-value {
-  width: 48%;
+  width: 65%;
 }
 
 .attr-edit {
@@ -125,4 +126,71 @@
 
 #edit-icon {
   margin: 0;
+}
+
+.edit-user-form {
+  // background: rgba(0,0,0,0.7);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.eu-row {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  // background-color: blue;
+}
+
+.eui-name {
+  width: 30%;
+
+}
+
+.eui-value {
+  width: 65%;
+  height: 25px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.eu-btn {
+  width: 48%;
+  height: 35px;
+  margin-bottom: -10px;
+  border-radius: 3px;
+  color: #fff;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.update-btn {
+  background-color: #e7746f;
+  transition: filter .15s ease-in;
+}
+
+.update-btn:hover {
+  filter: brightness(110%);
+  transition: filter .15s ease-in;
+}
+
+.cancel-btn {
+  background: rgba(0,0,0,0);
+  border: 2px solid #fff;
+  transition: background .15s ease-in;
+}
+
+.cancel-btn:hover {
+  background: rgba(255,255,255,0.35);
+  transition: background .15s ease-in;
 }

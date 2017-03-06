@@ -1,17 +1,18 @@
 import React from 'react';
+import EditUserFormContainer from './edit_user_form_container';
 
 const UserInfo = (props) => {
 
   const handleDeleteUser = () => {
-    
+
   };
 
   return (
     <div className='user-info-box flex-center'>
       <div className='user-info'>
         <div className='user-pic'></div>
-
-        <section className='user-contents'>
+        <EditUserFormContainer />
+        <section className='user-contents user-info-display display-none'>
           <div className='user-content'>
             <div className='attr-name'>NAME</div>
             <div className='attr-value'>
@@ -23,7 +24,7 @@ const UserInfo = (props) => {
           <div className='user-content'>
             <div className='attr-name'>EMAIL</div>
             <div className='attr-value'>
-              jay_hwang0121ost@gmail.com
+              { props.currentUser.email }
             </div>
           </div>
 
