@@ -10,6 +10,7 @@ class NavbarMenu extends React.Component {
     this.hideMenu = this.hideMenu.bind(this);
     this.showSessionForm = this.showSessionForm.bind(this);
     this.sessionMenu = this.sessionMenu.bind(this);
+    this.homeClick = this.homeClick.bind(this);
   }
 
   hideMenu() {
@@ -36,12 +37,18 @@ class NavbarMenu extends React.Component {
     }
   }
 
+  homeClick() {
+    this.props.router.push('/');
+  }
+
   render() {
     return (
       <div className='menu-background display-none'>
         <div className='menu'>
           <span className='exit' onClick={ this.hideMenu }>X</span>
           <ul className='menu-ul'>
+            <li className='menu-li' onClick={ this.homeClick }>HOME</li>
+            <div className='divider'></div>
             <li className='menu-li'>ABOUT</li>
             <div className='divider'></div>
             <li className='menu-li'>BLOGS</li>
@@ -54,4 +61,4 @@ class NavbarMenu extends React.Component {
   }
 }
 
-export default NavbarMenu;
+export default withRouter(NavbarMenu);

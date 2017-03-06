@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Home from './home';
+import Profile from './profile';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Profile);
