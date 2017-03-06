@@ -1,3 +1,4 @@
+import { browserHistory } from 'react-router';
 import merge from 'lodash/merge';
 import {
   RECEIVE_CURRENT_USER,

@@ -7,7 +7,9 @@ import configureStore from './store/store';
 import {
   login,
   logout,
-  signup
+  signup,
+  updateUser,
+  deleteUserAction
 } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   $(window).scroll(function() {
     let y = $(this).scrollTop();
     if (y > 500) {
-      $('.hidden-nav').fadeIn(200);
+      $('.hidden-nav').fadeIn(300);
     } else {
-      $('.hidden-nav').fadeOut(200);
+      $('.hidden-nav').fadeOut(300);
     }
   });
 
@@ -35,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.updateUser = updateUser;
+  window.deleteUser = deleteUserAction;
 
   ReactDOM.render(<Root store={store} />, main);
 });

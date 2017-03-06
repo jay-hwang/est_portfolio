@@ -9,10 +9,22 @@ export const logout = () => ({
   type: LOGOUT
 });
 
-export const SIGNUP = 'SIGN-UP';
+export const SIGNUP = 'SIGNUP';
 export const signup = user => ({
   type: SIGNUP,
   user
+});
+
+export const UPDATE_USER = 'UPDATE_USER';
+export const updateUser = user => ({
+  type: UPDATE_USER,
+  user
+});
+
+export const DELETE_USER = 'DELETEUSER';
+export const deleteUserAction = id => ({
+  type: DELETE_USER,
+  id
 });
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';

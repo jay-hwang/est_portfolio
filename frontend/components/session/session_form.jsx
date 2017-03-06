@@ -24,7 +24,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login({ user });
-    this.props.router.push('home');
   }
 
   handleChange(field) {
