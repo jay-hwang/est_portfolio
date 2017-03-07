@@ -1,7 +1,18 @@
 import React from 'react';
 import EditUserFormContainer from './edit_user_form_container';
+import PasswordFormContainer from './password_form_container';
 
 const UserInfo = (props) => {
+
+  const showEditForm = () => {
+    $('.user-info-display').fadeOut(150);
+    $('#edit-user-form').fadeIn(150);
+  };
+
+  const showPasswordForm = () => {
+    $('.user-info-display').fadeOut(150);
+    $('#password-form').fadeIn(150);
+  };
 
   const handleDeleteUser = () => {
 
@@ -12,7 +23,8 @@ const UserInfo = (props) => {
       <div className='user-info'>
         <div className='user-pic'></div>
         <EditUserFormContainer />
-        <section className='user-contents user-info-display display-none'>
+        <PasswordFormContainer />
+        <section className='user-contents user-info-display'>
           <div className='user-content'>
             <div className='attr-name'>NAME</div>
             <div className='attr-value'>
@@ -39,12 +51,12 @@ const UserInfo = (props) => {
       </div>
 
       <div className='user-buttons'>
-        <div className='user-button'>
+        <div className='user-button' onClick= { showPasswordForm }>
           <img className='ub-icon' id='password-icon'
             src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488825874/lock_eyvm3p.png' />
         </div>
 
-        <div className='user-button'>
+        <div className='user-button' onClick={ showEditForm }>
           <img className='ub-icon' id='edit-icon'
             src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/edit_tb7zyp.png' />
         </div>

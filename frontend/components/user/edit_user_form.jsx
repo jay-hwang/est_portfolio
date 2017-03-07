@@ -24,7 +24,7 @@ class EditUserForm extends React.Component {
 
   closeEditForm() {
     $('.user-info-display').fadeIn(150);
-    $('.edit-user-form').fadeOut(150);
+    $('#edit-user-form').fadeOut(150);
   }
 
   render() {
@@ -37,8 +37,9 @@ class EditUserForm extends React.Component {
     }
 
     return (
-      <form className='edit-user-form user-contents' onSubmit={ this.handleSubmit }>
-        <div className='eu-row-nuke user-content'>
+      <form id='edit-user-form'
+        className='edit-user-form user-contents display-none'>
+        <div className='user-content'>
           <p className='eui-name'>FIRST NAME</p>
           <input type='text'
             className='eui-value'
@@ -47,7 +48,7 @@ class EditUserForm extends React.Component {
             placeholder='First Name' />
         </div>
 
-        <div className='eu-row-nuke user-content'>
+        <div className='user-content'>
           <p className='eui-name'>LAST NAME</p>
           <input type='text'
             className='eui-value'
@@ -56,7 +57,7 @@ class EditUserForm extends React.Component {
             placeholder='Last Name' />
         </div>
 
-        <div className='eu-row-nuke user-content'>
+        <div className='user-content'>
           <p className='eui-name'>EMAIL</p>
           <input type='text'
             className='eui-value'
@@ -66,21 +67,18 @@ class EditUserForm extends React.Component {
         </div>
 
         <div className='eu-row'>
-          <button className='eu-btn update-btn'>UPDATE</button>
-          <div className='eu-btn cancel-btn flex-center'
+          <div className='eu-btn cancel-btn'
             onClick={ this.closeEditForm }>
             CANCEL
+          </div>
+          <div className='eu-btn update-btn'
+            onClick={ this.handleSubmit }>
+            UPDATE
           </div>
         </div>
       </form>
     );
   }
 }
-
-// <input type='text'
-//   className='eu-input'
-//   value={ this.state.username }
-//   onChange={ this.handleChange('username') }
-//   placeholder='Username' />
 
 export default EditUserForm;

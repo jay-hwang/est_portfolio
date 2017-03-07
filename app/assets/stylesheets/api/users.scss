@@ -17,13 +17,10 @@
 
 .user-info {
   font-size: 17px;
-  min-width: 500px;
+  min-width: 650px;
   height: 35%;
   width: 65%;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  position: relative;
 }
 
 .user-pic {
@@ -33,7 +30,9 @@
   width: 150px;
   background-color: lightgrey;
   border-radius: 50%;
-  margin-left: -70px;
+
+  position: absolute;
+  left: 60px;
 }
 
 .user-contents {
@@ -44,7 +43,10 @@
   min-width: 300px;
   width: 400px;
   height: 130px;
-  margin-left: -20px;
+
+
+  position: absolute;
+  left: 250px;
 }
 
 .user-content {
@@ -129,30 +131,27 @@
 }
 
 .edit-user-form {
-  // background: rgba(0,0,0,0.7);
+  margin-top: 10px;
+  width: 350px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 0;
   color: #fff;
   letter-spacing: 2px;
+  font-size: 15px;
 }
 
 .eu-row {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
-
-  // background-color: blue;
 }
 
 .eui-name {
-  width: 30%;
-
+  width: 33%;
 }
 
 .eui-value {
@@ -162,20 +161,26 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  border-radius: 3px;
 }
 
 .eu-btn {
   width: 48%;
-  height: 35px;
-  margin-bottom: -10px;
+  height: 30px;
+  margin-top: 10px;
   border-radius: 3px;
   color: #fff;
   letter-spacing: 2px;
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .update-btn {
   background-color: #e7746f;
+  border: 2px solid #e7746f;
   transition: filter .15s ease-in;
 }
 
