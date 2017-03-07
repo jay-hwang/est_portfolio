@@ -22,5 +22,5 @@ User.create({
   username: "jay",
   email: 'jayhwang@gmail.com',
   password: "password",
-  profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1488910435/est-profile_zyxawt.jpg"
+  profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1482131647/person-solid_telh7f.png"
 })

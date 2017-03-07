@@ -23,7 +23,8 @@ const UserInfo = (props) => {
   return (
     <div className='user-info-box flex-center'>
       <div className='user-info'>
-        <div className='user-pic'></div>
+        <img className='user-pic'
+          src={ props.currentUser.profile_pic_url } />
         <EditUserFormContainer />
         <PasswordFormContainer />
         <section className='user-contents user-info-display'>
