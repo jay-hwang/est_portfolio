@@ -5,12 +5,20 @@ class PasswordForm extends React.Component {
     super(props);
 
     this.state = {
+      id: props.currentUser.id,
       currentPassword: '',
       password: '',
       passwordRe: ''
     };
 
+    this.resetFields = this.resetFields.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.closePasswordForm = this.closePasswordForm.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.closePasswordForm(false);
   }
 
   handleChange(field) {
@@ -19,12 +27,22 @@ class PasswordForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    alert('updated password');
+    const user = this.state;
+    this.props.updateUser(user);
   }
 
-  closePasswordForm() {
+  closePasswordForm(shouldReset = true) {
     $('.user-info-display').fadeIn(150);
     $('#password-form').fadeOut(150);
+    if (shouldReset) { this.resetFields(); }
+  }
+
+  resetFields() {
+    this.setState({
+      currentPassword: '',
+      password: '',
+      passwordRe: ''
+    });
   }
 
   render() {
@@ -33,29 +51,29 @@ class PasswordForm extends React.Component {
         className='edit-user-form user-contents display-none'>
         <div className='user-content'>
           <p className='eui-name'>CURRENT</p>
-          <input type='text'
+          <input type='password'
             className='eui-value'
             value={ this.state.currentPassword }
             onChange={ this.handleChange('currentPassword') }
-            placeholder='Current Password' />
+            placeholder='CURRENT PASSWORD' />
         </div>
 
         <div className='user-content'>
           <p className='eui-name'>NEW</p>
-          <input type='text'
+          <input type='password'
             className='eui-value'
             value={ this.state.password }
             onChange={ this.handleChange('password') }
-            placeholder='New Password' />
+            placeholder='NEW PASSWORD' />
         </div>
 
         <div className='user-content'>
           <p className='eui-name'>CONFIRM</p>
-          <input type='text'
+          <input type='password'
             className='eui-value'
             value={ this.state.passwordRe }
             onChange={ this.handleChange('passwordRe') }
-            placeholder='Confirm New Password' />
+            placeholder='CONFIRM NEW PASSWORD' />
         </div>
 
         <div className='eu-row'>

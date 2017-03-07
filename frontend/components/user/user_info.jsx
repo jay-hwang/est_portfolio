@@ -6,11 +6,13 @@ const UserInfo = (props) => {
 
   const showEditForm = () => {
     $('.user-info-display').fadeOut(150);
+    $('#password-form').fadeOut(150);
     $('#edit-user-form').fadeIn(150);
   };
 
   const showPasswordForm = () => {
     $('.user-info-display').fadeOut(150);
+    $('#edit-user-form').fadeOut(150);
     $('#password-form').fadeIn(150);
   };
 

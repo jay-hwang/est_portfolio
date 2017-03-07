@@ -5,12 +5,20 @@ class EditUserForm extends React.Component {
     super(props);
 
     this.state = {
+      id: props.currentUser.id,
       first_name: props.currentUser.first_name,
       last_name: props.currentUser.last_name,
       email: props.currentUser.email
     };
 
+    this.resetFields = this.resetFields.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeEditForm = this.closeEditForm.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.closeEditForm(false);
   }
 
   handleChange(field) {
@@ -19,12 +27,22 @@ class EditUserForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    alert('updated');
+    const user = this.state;
+    this.props.updateUser(user);
   }
 
-  closeEditForm() {
+  closeEditForm(shouldReset = true) {
     $('.user-info-display').fadeIn(150);
     $('#edit-user-form').fadeOut(150);
+    if (shouldReset) { this.resetFields(); }
+  }
+
+  resetFields() {
+    this.setState({
+      first_name: this.props.currentUser.first_name,
+      last_name: this.props.currentUser.last_name,
+      email: this.props.currentUser.email
+    });
   }
 
   render() {
@@ -40,12 +58,13 @@ class EditUserForm extends React.Component {
       <form id='edit-user-form'
         className='edit-user-form user-contents display-none'>
         <div className='user-content'>
+          { errorsLi }
           <p className='eui-name'>FIRST NAME</p>
           <input type='text'
             className='eui-value'
             value={ this.state.first_name }
             onChange={ this.handleChange('first_name') }
-            placeholder='First Name' />
+            placeholder='FIRST NAME' />
         </div>
 
         <div className='user-content'>
@@ -54,7 +73,7 @@ class EditUserForm extends React.Component {
             className='eui-value'
             value={ this.state.last_name }
             onChange={ this.handleChange('last_name') }
-            placeholder='Last Name' />
+            placeholder='LAST NAME' />
         </div>
 
         <div className='user-content'>
@@ -63,7 +82,7 @@ class EditUserForm extends React.Component {
             className='eui-value'
             value={ this.state.email }
             onChange={ this.handleChange('email') }
-            placeholder='Email' />
+            placeholder='EMAIL' />
         </div>
 
         <div className='eu-row'>
