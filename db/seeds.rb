@@ -10,6 +10,7 @@ User.create({
   first_name: "Esther",
   last_name: "Gibbs",
   username: "estgibbs",
+  email: "esther.gibbs@fake.com",
   password: "letmein",
   profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1488910435/est-profile_zyxawt.jpg"
 })
@@ -19,6 +20,7 @@ User.create({
   first_name: "Jay",
   last_name: "Hwang",
   username: "jay",
+  email: 'jayhwang@gmail.com',
   password: "password",
   profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1488910435/est-profile_zyxawt.jpg"
 })
