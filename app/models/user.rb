@@ -1,18 +1,24 @@
 class User < ApplicationRecord
+  validates :username, presence: true, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email,
+            length: { maximum: 250 },
+            uniqueness: { case_sensitive: false },
+            format: { with: VALID_EMAIL_REGEX }
+
   validates :first_name,
             :last_name,
             :password_digest,
             :session_token,
             presence: true
 
-  validates :username, presence: true, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
-
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email,
-            length: { maximum: 250 },
-            uniqueness: { case_sensitive: false },
-            format: { with: VALID_EMAIL_REGEX }
+  has_many :blogs,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Blog
 
   after_initialize :ensure_session_token
 

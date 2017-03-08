@@ -38,6 +38,7 @@ class NavbarMenu extends React.Component {
   }
 
   homeClick() {
+    this.hideMenu();
     this.props.router.push('/');
   }
 

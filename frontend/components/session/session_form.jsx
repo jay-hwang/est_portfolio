@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.hideMenu = this.hideMenu.bind(this);
     this.hideSessionForm = this.hideSessionForm.bind(this);
     this.showSessionForm = this.showSessionForm.bind(this);
   }
@@ -24,12 +25,20 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login({ user });
+    this.hideMenu();
   }
 
   handleChange(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
+  }
+
+  hideMenu() {
+    $('.menu-background').fadeOut(200);
+    $('.menu').animate({ right: '-=350' }, 200);
+    $('.session').slideUp();
+    $('.loginli').fadeIn(350);
   }
 
   hideSessionForm() {

@@ -6,8 +6,8 @@ class UserMenu extends React.Component {
     super(props);
 
     this.handleLogout = this.handleLogout.bind(this);
-    this.handleAccountInfo = this.handleAccountInfo.bind(this);
     this.profileClick = this.profileClick.bind(this);
+    this.hideMenu = this.hideMenu.bind(this);
   }
 
   componentDidMount() {
@@ -16,19 +16,23 @@ class UserMenu extends React.Component {
     }
   }
 
-  handleLogout() {
-    return this.props.logout();
+  hideMenu() {
+    $('.menu-background').fadeOut(200);
+    $('.menu').animate({ right: '-=350' }, 200);
+    $('.session').slideUp();
+    $('.loginli').fadeIn(350);
   }
 
-  handleAccountInfo() {
-    if (this.props.loggedIn) {
-      this.props.router.push('/account-info');
-    }
+  handleLogout() {
+    this.props.logout();
+    this.props.router.push('/');
+    this.hideMenu();
   }
 
   profileClick() {
     if (this.props.loggedIn) {
       this.props.router.push('/profile');
+      this.hideMenu();
     }
   }
 
@@ -37,7 +41,7 @@ class UserMenu extends React.Component {
       <div className='user-menu'>
         <li className='menu-li'>NEW BLOG</li>
         <div className='divider'></div>
-        <li className='menu-li'>EDIT MY BLOGS</li>
+        <li className='menu-li'>VIEW MY BLOGS</li>
         <div className='divider'></div>
         <li className='menu-li' onClick={ this.profileClick }>PROFILE</li>
         <div className='divider'></div>
