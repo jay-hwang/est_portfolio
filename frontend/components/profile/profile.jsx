@@ -17,3 +17,12 @@ class Profile extends React.Component {
 }
 
 export default withRouter(Profile);
+
+
+// u = User.create({
+//   first_name: 'test',
+//   last_name: 'user',
+//   username: 'test-user',
+//   password: 'password',
+//   email: 'test.user@fake.com'
+// })

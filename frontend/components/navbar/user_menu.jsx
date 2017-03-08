@@ -41,8 +41,6 @@ class UserMenu extends React.Component {
         <div className='divider'></div>
         <li className='menu-li' onClick={ this.profileClick }>PROFILE</li>
         <div className='divider'></div>
-        <li className='menu-li' onClick={ this.handleAccountInfo }>ACCOUNT INFO</li>
-        <div className='divider'></div>
         <li className='menu-li' onClick={ this.handleLogout }>LOG OUT</li>
       </div>
     );

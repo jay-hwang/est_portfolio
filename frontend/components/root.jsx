@@ -4,7 +4,6 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Splash from './splash/splash';
 import ProfileContainer from './profile/profile_container';
-import AccountInfoContainer from './account_info/account_info_container';
 
 const Root = ({ store }) => {
   const _redirectUnlessLoggedIn = (nextState, replace) => {
@@ -22,11 +21,6 @@ const Root = ({ store }) => {
 
           <Route path='/profile'
             component={ ProfileContainer }
-            onEnter={ _redirectUnlessLoggedIn }>
-          </Route>
-
-          <Route path='/account-info'
-            component={ AccountInfoContainer }
             onEnter={ _redirectUnlessLoggedIn }>
           </Route>
 

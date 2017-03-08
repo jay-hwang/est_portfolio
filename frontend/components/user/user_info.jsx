@@ -1,79 +1,91 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import EditUserFormContainer from './edit_user_form_container';
 import PasswordFormContainer from './password_form_container';
 
-const UserInfo = (props) => {
+class UserInfo extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const showEditForm = () => {
+    this.showEditForm = this.showEditForm.bind(this);
+    this.showPasswordForm = this.showPasswordForm.bind(this);
+    this.handleDeleteUser = this.handleDeleteUser.bind(this);
+  }
+
+  showEditForm() {
     $('.user-info-display').fadeOut(150);
     $('#password-form').fadeOut(150);
     $('#edit-user-form').fadeIn(150);
-  };
+  }
 
-  const showPasswordForm = () => {
+  showPasswordForm() {
     $('.user-info-display').fadeOut(150);
     $('#edit-user-form').fadeOut(150);
     $('#password-form').fadeIn(150);
-  };
+  }
 
-  const handleDeleteUser = () => {
+  handleDeleteUser() {
+    if (confirm('Are you sure? Deleting your account is permanent.')) {  
+      const userId = this.props.currentUser.id;
+      this.props.logout();
+      this.props.router.push('/');
+      this.props.deleteUser(userId);
+    }
+  }
 
-  };
+  render() {
+    return (
+      <div className='user-info-box flex-center'>
+        <div className='user-info'>
+          <img className='user-pic'
+            src={ this.props.currentUser.profile_pic_url } />
+          <EditUserFormContainer />
+          <PasswordFormContainer />
+          <section className='user-contents user-info-display'>
+            <div className='user-content'>
+              <div className='attr-name'>NAME</div>
+              <div className='attr-value'>
+                { this.props.currentUser.first_name } { this.props.currentUser.last_name }
+              </div>
 
-  return (
-    <div className='user-info-box flex-center'>
-      <div className='user-info'>
-        <img className='user-pic'
-          src={ props.currentUser.profile_pic_url } />
-        <EditUserFormContainer />
-        <PasswordFormContainer />
-        <section className='user-contents user-info-display'>
-          <div className='user-content'>
-            <div className='attr-name'>NAME</div>
-            <div className='attr-value'>
-              { props.currentUser.first_name } { props.currentUser.last_name }
             </div>
 
-          </div>
-
-          <div className='user-content'>
-            <div className='attr-name'>EMAIL</div>
-            <div className='attr-value'>
-              { props.currentUser.email }
-            </div>
-          </div>
-
-          <div className='user-content'>
-            <div className='attr-name'>USERNAME</div>
-            <div className='attr-value'>
-              { props.currentUser.username }
+            <div className='user-content'>
+              <div className='attr-name'>EMAIL</div>
+              <div className='attr-value'>
+                { this.props.currentUser.email }
+              </div>
             </div>
 
+            <div className='user-content'>
+              <div className='attr-name'>USERNAME</div>
+              <div className='attr-value'>
+                { this.props.currentUser.username }
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+        <div className='user-buttons'>
+          <div className='user-button' onClick= { this.showPasswordForm }>
+            <img className='ub-icon' id='password-icon'
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488825874/lock_eyvm3p.png' />
           </div>
-        </section>
+
+          <div className='user-button' onClick={ this.showEditForm }>
+            <img className='ub-icon' id='edit-icon'
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/edit_tb7zyp.png' />
+          </div>
+
+          <div className='user-button' onClick={ this.handleDeleteUser }>
+            <img className='ub-icon' id='delete-icon'
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/delete_garaiy.png' />
+          </div>
+        </div>
       </div>
+    );
+  }
+}
 
-      <div className='user-buttons'>
-        <div className='user-button' onClick= { showPasswordForm }>
-          <img className='ub-icon' id='password-icon'
-            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488825874/lock_eyvm3p.png' />
-        </div>
-
-        <div className='user-button' onClick={ showEditForm }>
-          <img className='ub-icon' id='edit-icon'
-            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/edit_tb7zyp.png' />
-        </div>
-
-        <div className='user-button'>
-          <img className='ub-icon' id='delete-icon'
-            src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/delete_garaiy.png' />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// <div className='attr-edit'>EDIT</div>
-// <div className='attr-edit'>EDIT</div>
-
-export default UserInfo;
+export default withRouter(UserInfo);
