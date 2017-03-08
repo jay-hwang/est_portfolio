@@ -11,13 +11,19 @@
 
 .svg-icons {
   display: flex;
-  height: 30px;
+  justify-content: space-between;
+
+  height: 33px;
+  width: 200px;
 }
 
 .svg-icon {
   height: 100%;
-  margin-right: 40px;
   transition: filter .15s ease-in;
+}
+
+.svg-icon:last-child {
+  margin: 0;
 }
 
 .svg-icon:hover {

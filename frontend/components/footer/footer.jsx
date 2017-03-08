@@ -4,22 +4,22 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='svg-icons'>
-        <a href="https://twitter.com/estherhope_95" target="_blank">
-          <img
-            src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488593719/twitter_vqdkdq.png"
-            className='svg-icon' />
+        <a className='svg-icon' target="_blank"
+          href="https://twitter.com/estherhope_95" >
+            <img className='svg-icon'
+              src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488593719/twitter_vqdkdq.png" />
         </a>
 
-        <a href="https://www.instagram.com/est_hope/" target="_blank">
-          <img
-            src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488592698/insta_yhj6op.png"
-            className='svg-icon' />
+        <a target="_blank" className='svg-icon'
+          href="https://www.instagram.com/est_hope/" >
+            <img className='svg-icon'
+              src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488592698/insta_yhj6op.png" />
         </a>
 
-        <a href="https://www.linkedin.com/in/esther-gibbs-568527134/" target="_blank">
-          <img
-            src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488593719/linkedin_qioq4m.png"
-            className='svg-icon' />
+        <a target="_blank"  className='svg-icon'
+          href="https://www.linkedin.com/in/esther-gibbs-568527134/" >
+            <img className='svg-icon' 
+              src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1488593719/linkedin_qioq4m.png" />
         </a>
       </div>
       <nav className='footer-nav'>
