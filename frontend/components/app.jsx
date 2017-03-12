@@ -16,7 +16,6 @@ class App extends React.Component {
         <Navbar />
         <Subscribe />
         {this.props.children}
-        <Footer />
       </div>
     );
   }

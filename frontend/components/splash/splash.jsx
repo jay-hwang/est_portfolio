@@ -2,8 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import Intro1 from '../intro/intro1';
 import Intro2 from '../intro/intro2';
-import Blogs from '../blog/blogs';
+import BlogsContainer from '../blog/blogs_container';
 import Contact from '../contact/contact';
+import Footer from '../footer/footer';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -14,8 +15,8 @@ class Splash extends React.Component {
     return (
       <div className='splash-background'>
         <div className='screen'>
-          <div className='splash'>
 
+          <div className='splash'>
             <div className='content'>
               <div className='title'>
                 TITLE
@@ -29,10 +30,11 @@ class Splash extends React.Component {
 
           <Intro1 />
           <Intro2 />
-          <Blogs />
-
+          <BlogsContainer blogs={ this.props.blogs } />
           <Contact />
+
         </div>
+        <Footer />
       </div>
     );
   }

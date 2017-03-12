@@ -7,20 +7,15 @@ class UserMenu extends React.Component {
 
     this.handleLogout = this.handleLogout.bind(this);
     this.profileClick = this.profileClick.bind(this);
-    this.hideMenu = this.hideMenu.bind(this);
+    this.hideMenu = this.props.hideMenu.bind(this);
+    this.blogClick = this.blogClick.bind(this);
+    this.viewBlogsClick = this.viewBlogsClick.bind(this);
   }
 
   componentDidMount() {
     if (this.props.loggedIn && !window.currentUser) {
       this.props.router.push('/profile');
     }
-  }
-
-  hideMenu() {
-    $('.menu-background').fadeOut(200);
-    $('.menu').animate({ right: '-=350' }, 200);
-    $('.session').slideUp();
-    $('.loginli').fadeIn(350);
   }
 
   handleLogout() {
@@ -36,12 +31,26 @@ class UserMenu extends React.Component {
     }
   }
 
+  blogClick() {
+    if (this.props.loggedIn) {
+      this.props.router.push('/new-blog');
+      this.hideMenu();
+    }
+  }
+
+  viewBlogsClick() {
+    if (this.props.loggedIn) {
+      this.props.router.push('/blogs/user');
+      this.hideMenu();
+    }
+  }
+
   render() {
     return (
       <div className='user-menu'>
-        <li className='menu-li'>NEW BLOG</li>
+        <li className='menu-li' onClick={ this.blogClick }>NEW BLOG</li>
         <div className='divider'></div>
-        <li className='menu-li'>VIEW MY BLOGS</li>
+        <li className='menu-li' onClick={ this.viewBlogsClick }>VIEW MY BLOGS</li>
         <div className='divider'></div>
         <li className='menu-li' onClick={ this.profileClick }>PROFILE</li>
         <div className='divider'></div>

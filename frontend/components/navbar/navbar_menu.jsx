@@ -11,6 +11,7 @@ class NavbarMenu extends React.Component {
     this.showSessionForm = this.showSessionForm.bind(this);
     this.sessionMenu = this.sessionMenu.bind(this);
     this.homeClick = this.homeClick.bind(this);
+    this.blogsClick = this.blogsClick.bind(this);
   }
 
   hideMenu() {
@@ -28,11 +29,11 @@ class NavbarMenu extends React.Component {
   sessionMenu() {
     if (this.props.loggedIn) {
       return (
-        <UserMenuContainer />
+        <UserMenuContainer hideMenu={ this.hideMenu } />
       );
     } else {
       return (
-        <SessionFormContainer />
+        <SessionFormContainer hideMenu={ this.hideMenu } />
       );
     }
   }
@@ -40,6 +41,11 @@ class NavbarMenu extends React.Component {
   homeClick() {
     this.hideMenu();
     this.props.router.push('/');
+  }
+
+  blogsClick() {
+    this.hideMenu();
+    this.props.router.push('/blogs');
   }
 
   render() {
@@ -52,7 +58,7 @@ class NavbarMenu extends React.Component {
             <div className='divider'></div>
             <li className='menu-li'>ABOUT</li>
             <div className='divider'></div>
-            <li className='menu-li'>BLOGS</li>
+            <li className='menu-li' onClick={ this.blogsClick }>BLOGS</li>
             <div className='divider'></div>
             { this.sessionMenu() }
           </ul>

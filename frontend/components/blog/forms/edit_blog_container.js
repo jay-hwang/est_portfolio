@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import UserMenu from './user_menu';
-import { logout } from '../../actions/session_actions';
+import BlogForm from './blog_form';
+import { updateBlog } from '../../../actions/blog_actions';
 
 const mapStateToProps = (state, props) => ({
   loggedIn: state.session.currentUser ? true : false,
   currentUser: state.session.currentUser,
-  hideMenu: props.hideMenu
+  blog: props.blog,
+  isNew: false,
 });
 
 const mapDispatchToProps = (dispatch, routerProps) => ({
-  logout: () => dispatch(logout())
+  updateBlog: blog => dispatch(updateBlog(blog))
 });
 
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(UserMenu);
+)(BlogForm);

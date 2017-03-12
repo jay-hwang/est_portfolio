@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-  validates :author, :title, :body, null: false
+  validates :author, :title, :body, presence: true
 
   belongs_to :author,
     primary_key: :id,

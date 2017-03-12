@@ -18,7 +18,7 @@ import {
   fetchBlogs,
   updateBlog,
   deletBlog
-} from '../util/spot_api_util';
+} from '../util/blog_api_util';
 
 const BlogMiddleware = ({ getState, dispatch }) => next => action => {
   const blogSuccess       = blog   => { dispatch(receiveBlog(blog));   };

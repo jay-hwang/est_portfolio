@@ -17,7 +17,7 @@ class Api::BlogsController < ApplicationController
   end
 
   def update
-    @blog = Blog.find(params[:id]))
+    @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       render :show
     else
@@ -37,7 +37,9 @@ class Api::BlogsController < ApplicationController
       params.require(:blog).permit(
         :author_id,
         :title,
-        :body
+        :body,
+        :created_at,
+        :updated_at
       )
     end
 end
