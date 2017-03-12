@@ -3,7 +3,7 @@ import {
   REQUEST_BLOG,
   REQUEST_BLOGS,
   UPDATE_BLOG,
-  DELETE_BLOG,
+  REMOVE_BLOG,
   requestBlogs,
   requestBlog,
   removeBlog,
@@ -17,7 +17,7 @@ import {
   fetchBlog,
   fetchBlogs,
   updateBlog,
-  deletBlog
+  deleteBlog
 } from '../util/blog_api_util';
 
 const BlogMiddleware = ({ getState, dispatch }) => next => action => {
@@ -43,8 +43,8 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
       updateBlog(action.blog, blogSuccess, error);
       return next(action);
 
-    case DELETE_BLOG:
-      removeBlog(action.blogId, blogSuccess, error);
+    case REMOVE_BLOG:
+      deleteBlog(action.blogId, blogSuccess, error);
       return next(action);
 
     default:

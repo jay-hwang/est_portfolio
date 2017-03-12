@@ -6,9 +6,10 @@ const BlogLink = props => {
   };
 
   const handleDelete = () => {
-    // check props.removeBlog
-    debugger;
-    props.removeBlog(props.blog.id);
+    if (confirm('Are you sure? Deleting a blog is permanent')) {
+      const blogId = props.blog.id;
+      props.removeBlog(blogId);
+    }
   };
 
   return (
