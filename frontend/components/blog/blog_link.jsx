@@ -1,30 +1,45 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const BlogLink = props => {
-  const handleEdit = () => {
+class BlogLink extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleBlogShow = this.handleBlogShow.bind(this);
+  }
+
+  handleEdit() {
     alert('will re-route to edit');
-  };
+  }
 
-  const handleDelete = () => {
+  handleDelete() {
     if (confirm('Are you sure? Deleting a blog is permanent')) {
-      const blogId = props.blog.id;
-      props.removeBlog(blogId);
+      const blogId = this.props.blog.id;
+      this.props.removeBlog(blogId);
     }
-  };
+  }
 
-  return (
-    <div className='blog-link'>
-      <span className='blog-title'>{ props.blog.title }</span>
-      <p className='blog-intro'>
-        { props.blog.created_at }
-      </p>
+  handleBlogShow() {
+    this.props.router.push(`/blogs/${this.props.blog.id}`);
+  }
 
-      <div className='blog-actions'>
-        <div className='blog-action'>EDIT</div>
-        <div className='blog-action' onClick={ handleDelete }>DELETE</div>
+  render() {
+    return (
+      <div className='blog-link' onClick={ this.handleBlogShow }>
+        <span className='blog-title'>{ this.props.blog.title }</span>
+        <p className='blog-intro'>
+          { this.props.blog.created_at }
+        </p>
+
+        <div className='blog-actions'>
+          <div className='blog-action'>EDIT</div>
+          <div className='blog-action' onClick={ this.handleDelete }>DELETE</div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default BlogLink;
+export default withRouter(BlogLink);

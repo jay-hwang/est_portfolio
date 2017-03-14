@@ -5,9 +5,7 @@ import {
 
 export const _redirectUnlessLoggedIn = store => {
   return (nextState, replace) => {
-    if (!store.getState().session.currentUser) {
-      replace('/');
-    }
+    if (!store.getState().session.currentUser) { replace('/'); }
   };
 };
 

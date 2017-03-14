@@ -7,6 +7,7 @@ import ProfileContainer from './profile/profile_container';
 import NewBlogContainer from './blog/forms/new_blog_container';
 import BlogsContainer from './blog/blogs_container';
 import UserBlogsContainer from './blog/user_blogs_container';
+import BlogContainer from './blog/blog_container';
 import {
   _redirectUnlessLoggedIn,
   _getBlogs,
@@ -41,6 +42,10 @@ const Root = ({ store }) => {
           <Route path='/blogs/user'
             component={ UserBlogsContainer }
             onEnter={ _getUserBlogs(store) }>
+          </Route>
+
+          <Route path='/blogs/:blog_id'
+            component={ BlogContainer }>
           </Route>
 
         </Route>

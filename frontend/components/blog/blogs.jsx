@@ -1,24 +1,34 @@
 import React from 'react';
-import BlogLink from './blog_link';
+import BlogLinkContainer from './blog_link_container';
 
 class Blogs extends React.Component {
   constructor(props) {
     super(props);
 
-    this.blogLis = null;
-    this.didReceiveBlogs = false;
-    this.blogs = this.delegateBlogs();
+    this.didReceiveBlogs = this.isEmptyObj(props.blogs) ? false : true;
+    this.didMapBlogs = false;
 
     this.delegateBlogs = this.delegateBlogs.bind(this);
+    this.isEmptyObj = this.isEmptyObj.bind(this);
     this.mapBlogs = this.mapBlogs.bind(this);
   }
 
   componentDidMount() {
+    this.blogs = this.delegateBlogs();
     this.mapBlogs();
   }
 
   componentDidUpdate() {
+    this.blogs = this.delegateBlogs();
     this.mapBlogs();
+  }
+
+  isEmptyObj(obj) {
+    let keys = Object.keys(obj);
+    if (keys.length === 0 && obj.constructor === Object) {
+      return true;
+    }
+    return false;
   }
 
   delegateBlogs() {
@@ -32,17 +42,16 @@ class Blogs extends React.Component {
   }
 
   mapBlogs() {
-    if (this.didReceiveBlogs) { return; }
+    if (this.didMapBlogs) { return; }
     let blogKeys = Object.keys(this.blogs);
 
     if (blogKeys.length > 0 && this.blogs.constructor === Object) {
-      this.didReceiveBlogs = true;
+      debugger;
+      this.didMapBlogs = true;
 
       this.blogLis = blogKeys.map((blogKey, i) => (
         <li key={i} className='blog'>
-          <BlogLink blog={ this.blogs[blogKey] }
-            updateBlog={ this.props.updateBlog }
-            removeBlog={ this.props.removeBlog } />
+          <BlogLinkContainer blog={ this.blogs[blogKey] } />
         </li>
       ));
 
@@ -56,9 +65,7 @@ class Blogs extends React.Component {
     return (
       <section className='blogs-box'>
         <span className='second-title'>{ title } BLOGS</span>
-        <ul className='blogs'>
-          { this.blogLis }
-        </ul>
+        <ul className='blogs'>{ this.blogLis }</ul>
       </section>
     );
   }

@@ -26,6 +26,9 @@ class BlogForm extends React.Component {
     } else {
       this.props.updateBlog(blog);
     }
+
+    // Should route to blog show page
+    this.props.router.push('/blogs/user');
   }
 
   handleChange(field) {
