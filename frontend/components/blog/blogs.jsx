@@ -67,7 +67,9 @@ class Blogs extends React.Component {
 
       let blogLis = blogKeys.map((blogKey, i) => (
         <li key={i} className='blog'>
-          <BlogLinkContainer blog={ this.blogs[blogKey] } update={ this.update }/>
+          <BlogLinkContainer blog={ this.blogs[blogKey] }
+            isUserBlogs={ this.props.isUserBlogs }
+            update={ this.update } />
         </li>
       ));
 
@@ -84,7 +86,7 @@ class Blogs extends React.Component {
     let title = this.props.isUserBlogs ? 'MY' : 'RECENT';
 
     // check state
-    debugger;
+    // debugger;
 
     return (
       <section className='blogs-box'>

@@ -2,6 +2,21 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import BlogContainer from './blog_container';
 
+const BlogActions = ({ isUserBlogs, handleEdit, handleDelete }) => {
+  if (isUserBlogs) {
+    return (
+      <div className='blog-actions'>
+        <div className='blog-action' onClick={ handleEdit }>EDIT</div>
+        <div className='blog-action' onClick={ handleDelete }>DELETE</div>
+      </div>
+    );
+  } else {
+    return (
+      <div></div>
+    );
+  }
+};
+
 class BlogLink extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +44,8 @@ class BlogLink extends React.Component {
     this.props.router.push(`/blogs/${this.props.blog.id}`);
   }
 
+
+
   render() {
     return (
       <div className='blog-link' onClick={ this.handleBlogShow }>
@@ -37,10 +54,9 @@ class BlogLink extends React.Component {
           { this.props.blog.created_at }
         </p>
 
-        <div className='blog-actions'>
-          <div className='blog-action' onClick={ this.handleEdit }>EDIT</div>
-          <div className='blog-action' onClick={ this.handleDelete }>DELETE</div>
-        </div>
+        <BlogActions isUserBlogs={ this.props.isUserBlogs }
+          handleEdit={ this.handleEdit }
+          handleDelete={ this.handleDelete } />
       </div>
     );
   }
