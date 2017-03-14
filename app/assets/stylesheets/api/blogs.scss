@@ -44,6 +44,8 @@
   text-align: center;
   color: #fff;
   letter-spacing: 2px;
+
+  cursor: pointer;
 }
 
 .blog-title {
@@ -121,4 +123,9 @@
 .blog-submit-btn:hover {
   background-color: pink;
   transition: background .15s ease-in;
+}
+
+.blog-show {
+  width: 100%;
+  margin-top: 60px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import BlogContainer from './blog_container';
 
 class BlogLink extends React.Component {
   constructor(props) {
@@ -10,14 +11,17 @@ class BlogLink extends React.Component {
     this.handleBlogShow = this.handleBlogShow.bind(this);
   }
 
-  handleEdit() {
+  handleEdit(e) {
+    e.stopPropagation();
     alert('will re-route to edit');
   }
 
-  handleDelete() {
+  handleDelete(e) {
+    e.stopPropagation();
     if (confirm('Are you sure? Deleting a blog is permanent')) {
       const blogId = this.props.blog.id;
       this.props.removeBlog(blogId);
+      this.props.update();
     }
   }
 
@@ -34,7 +38,7 @@ class BlogLink extends React.Component {
         </p>
 
         <div className='blog-actions'>
-          <div className='blog-action'>EDIT</div>
+          <div className='blog-action' onClick={ this.handleEdit }>EDIT</div>
           <div className='blog-action' onClick={ this.handleDelete }>DELETE</div>
         </div>
       </div>
