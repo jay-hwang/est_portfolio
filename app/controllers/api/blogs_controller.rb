@@ -27,8 +27,9 @@ class Api::BlogsController < ApplicationController
 
   def destroy
     @blog = Blog.find(params[:id])
+    id = @blog.id
     @blog.destroy
-    render json: {}
+    render json: id
   end
 
   private

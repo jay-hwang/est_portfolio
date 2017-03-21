@@ -15,7 +15,6 @@ User.create({
   profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1488910435/est-profile_zyxawt.jpg"
 })
 
-
 User.create({
   first_name: "Jay",
   last_name: "Hwang",
@@ -24,3 +23,12 @@ User.create({
   password: "password",
   profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1482131647/person-solid_telh7f.png"
 })
+
+User.create({
+  first_name: "Comment",
+  last_name: "Handler",
+  username: "comment_handler",
+  email: "comment@handle.com",
+  password: "password",
+  profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1482131647/person-solid_telh7f.png"
+});
