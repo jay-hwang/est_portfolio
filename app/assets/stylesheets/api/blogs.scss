@@ -126,6 +126,23 @@
 }
 
 .blog-show {
-  width: 100%;
+  width: 600px;
+  min-height: 500px;
+  margin: 0 auto;
   margin-top: 60px;
+
+  padding: 40px 0;
+
+  border: 1px solid lightgrey;
+}
+
+.header {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.body {
+  
 }

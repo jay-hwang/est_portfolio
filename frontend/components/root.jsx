@@ -5,6 +5,7 @@ import App from './app';
 import SplashContainer from './splash/splash_container';
 import ProfileContainer from './profile/profile_container';
 import NewBlogContainer from './blog/forms/new_blog_container';
+import EditBlogContainer from './blog/forms/edit_blog_container';
 import BlogsContainer from './blog/blogs_container';
 import UserBlogsContainer from './blog/user_blogs_container';
 import BlogContainer from './blog/blog_container';
@@ -12,7 +13,7 @@ import {
   _redirectUnlessLoggedIn,
   _getBlogs,
   _getUserBlogs
-} from '../util/on_enter_hooks';
+} from '../util/helper_methods';
 
 const Root = ({ store }) => {
   return (
@@ -32,6 +33,11 @@ const Root = ({ store }) => {
           <Route path='/new-blog'
             component={ NewBlogContainer }
             onEnter={ _redirectUnlessLoggedIn(store) }>
+          </Route>
+
+          <Route path='/blogs/edit/:blog_id'
+            component={ EditBlogContainer }
+            onEnter={ _getBlogs(store) }>
           </Route>
 
           <Route path='/blogs'

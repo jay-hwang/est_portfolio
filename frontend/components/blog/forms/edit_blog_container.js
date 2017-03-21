@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import BlogForm from './blog_form';
-import { updateBlog } from '../../../actions/blog_actions';
+import { updateBlog, requestBlogs } from '../../../actions/blog_actions';
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
   currentUser: state.session.currentUser,
-  blog: props.blog,
-  isNew: false,
+  blogs: state.blogs.index,
+  isNew: false
 });
 
 const mapDispatchToProps = (dispatch, routerProps) => ({
-  updateBlog: blog => dispatch(updateBlog(blog))
+  updateBlog: blog => dispatch(updateBlog(blog)),
+  requestBlogs: () => dispatch(requestBlogs())
 });
 
 export default connect (

@@ -28,7 +28,7 @@ class BlogLink extends React.Component {
 
   handleEdit(e) {
     e.stopPropagation();
-    alert('will re-route to edit');
+    this.props.router.push(`/blogs/edit/${this.props.blog.id}`);
   }
 
   handleDelete(e) {
@@ -44,8 +44,6 @@ class BlogLink extends React.Component {
     this.props.router.push(`/blogs/${this.props.blog.id}`);
   }
 
-
-
   render() {
     return (
       <div className='blog-link' onClick={ this.handleBlogShow }>
@@ -54,7 +52,8 @@ class BlogLink extends React.Component {
           { this.props.blog.created_at }
         </p>
 
-        <BlogActions isUserBlogs={ this.props.isUserBlogs }
+        <BlogActions
+          isUserBlogs={ this.props.isUserBlogs }
           handleEdit={ this.handleEdit }
           handleDelete={ this.handleDelete } />
       </div>

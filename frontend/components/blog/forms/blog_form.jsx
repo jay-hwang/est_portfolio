@@ -5,16 +5,43 @@ class BlogForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.hasBlog = false;
+    this.blogId = this.props.routeParams.blog_id;
+    this.formType = this.props.isNew ? 'Create' : 'Update';
+
     this.state = {
+      id: this.blogId ? this.blogId : null,
       author_id: this.props.currentUser.id,
       title: '',
       body: ''
     };
 
-    this.formType = this.props.isNew ? 'Create' : 'Update';
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.initBlog = this.initBlog.bind(this);
+  }
+
+  componentDidMount() {
+    if (!this.props.isNew) {
+      this.props.requestBlogs();
+    }
+  }
+
+  componentDidUpdate() {
+    if (!this.props.isNew) {
+      this.initBlog();
+    }
+  }
+
+  initBlog() {
+    if (this.hasBlog) { return; }
+    let blog = this.props.blogs[this.blogId];
+    this.hasBlog = true;
+
+    this.setState({
+      title: blog.title,
+      body: blog.body
+    });
   }
 
   handleSubmit(e) {
@@ -24,10 +51,10 @@ class BlogForm extends React.Component {
     if (this.props.isNew) {
       this.props.createBlog(blog);
     } else {
-      this.props.updateBlog(blog);
+      debugger;
+      this.props.updateBlog(blog, this.props.router);
     }
 
-    // Should route to blog show page
     this.props.router.push('/blogs/user');
   }
 

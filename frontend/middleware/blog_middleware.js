@@ -3,7 +3,7 @@ import {
   REQUEST_BLOG,
   REQUEST_BLOGS,
   UPDATE_BLOG,
-  REMOVE_BLOG,
+  DELETE_BLOG,
   requestBlogs,
   requestBlog,
   removeBlog,
@@ -21,10 +21,14 @@ import {
 } from '../util/blog_api_util';
 
 const BlogMiddleware = ({ getState, dispatch }) => next => action => {
-  const blogSuccess       = blog   => { dispatch(receiveBlog(blog));   };
-  const blogsSuccess      = blogs  => { dispatch(receiveBlogs(blogs)); };
-  const deleteBlogSuccess = blogId => { dispatch(removeBlog(blogId));  };
-  const error = e => { dispatch(receiveBlogErrors(e.responseJSON));    };
+  const deleteBlogSuccess = id => dispatch(removeBlog(id));
+  const error             = e => dispatch(receiveBlogErrors(e.responseJSON));
+  const blogSuccess       = blog => dispatch(receiveBlog(blog));
+  const blogsSuccess      = blogs => dispatch(receiveBlogs(blogs));
+  const updateBlogSuccess = blog => {
+    dispatch(receiveBlog(blog));
+    action.router.push('/blogs/user');
+  };
 
   switch(action.type) {
     case CREATE_BLOG:
@@ -32,7 +36,7 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
       return next(action);
 
     case REQUEST_BLOG:
-      fetchBlog(action.blogId, blogSuccess, error);
+      fetchBlog(action.id, blogSuccess, error);
       return next(action);
 
     case REQUEST_BLOGS:
@@ -40,11 +44,11 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
       return next(action);
 
     case UPDATE_BLOG:
-      updateBlog(action.blog, blogSuccess, error);
+      updateBlog(action.blog, updateBlogSuccess, error);
       return next(action);
 
-    case REMOVE_BLOG:
-      deleteBlog(action.blogId, blogSuccess, error);
+    case DELETE_BLOG:
+      deleteBlog(action.id, deleteBlogSuccess, error);
       return next(action);
 
     default:

@@ -12,6 +12,14 @@ import {
   deleteUserAction
 } from './actions/session_actions';
 
+import {
+  createBlog,
+  requestBlog,
+  requestBlogs,
+  updateBlog,
+  deleteBlog
+} from './actions/blog_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');
 
@@ -39,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = signup;
   window.updateUser = updateUser;
   window.deleteUser = deleteUserAction;
+
+  window.createBlog = createBlog;
+  window.requestBlog = requestBlog;
+  window.requestBlogs = requestBlogs;
+  window.updateBlog = updateBlog;
+  window.deleteBlog = deleteBlog;
 
   ReactDOM.render(<Root store={store} />, main);
 });

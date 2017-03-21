@@ -5,42 +5,26 @@ class Blog extends React.Component {
     super(props);
 
     this.blogId = this.props.routeParams.blog_id;
-    this.hasBlog = false;
-    this.state = {
-      title: '',
-      body: ''
-    };
 
-    this.initBlog = this.initBlog.bind(this);
+    this.mapBlog = this.mapBlog.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestBlogs();
+    this.props.requestBlog(this.blogId);
   }
 
-  componentDidUpdate() {
-    this.initBlog();
-  }
-
-  initBlog() {
-    if (this.hasBlog) { return; }
-    let blog = this.props.blogs[this.blogId];
-    this.hasBlog = true;
-
-    this.setState({
-      title: blog.title,
-      body: blog.body
-    });
+  mapBlog() {
+    if (!this.props.blogs[this.blogId]) { return ''; }
+    return this.props.blogs[this.blogId];
   }
 
   render() {
-    console.log(this.state);
+    let blog = this.mapBlog();
 
     return (
       <section className='blog-show'>
-        Blog Show Page
-        { this.state.title }
-        { this.state.body }
+        <h3 className='header'>{ blog.title }</h3>
+        <p className='body'>{ blog.body }</p>
       </section>
     );
   }

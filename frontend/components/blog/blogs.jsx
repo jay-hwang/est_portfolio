@@ -5,93 +5,40 @@ class Blogs extends React.Component {
   constructor(props) {
     super(props);
 
-    this.didReceiveBlogs = this.isEmptyObj(props.blogs) ? false : true;
-    this.didMapBlogs = false;
-
-    this.state = {
-      blogLis: ''
-    };
-
-    this.delegateBlogs = this.delegateBlogs.bind(this);
-    this.isEmptyObj = this.isEmptyObj.bind(this);
-    this.initBlogs = this.initBlogs.bind(this);
-    this.mapBlogs = this.mapBlogs.bind(this);
-    this.update = this.update.bind(this);
+    this.mapBlogLis = this.mapBlogLis.bind(this);
   }
 
   componentDidMount() {
     this.props.requestBlogs();
-    this.initBlogs();
   }
 
-  componentDidUpdate() {
-    this.initBlogs();
-  }
-
-  initBlogs() {
-    console.log('initBlogs called');
-    this.blogs = this.delegateBlogs();
-    this.mapBlogs();
-  }
-
-  isEmptyObj(obj) {
-    if (Object.keys(obj).length === 0 && obj.constructor === Object) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  delegateBlogs() {
+  mapBlogLis() {
+    let blogLis = [];
     if (this.props.isUserBlogs) {
-      let blogsObj = {};
-      this.props.blogs.map(blog => ( blogsObj[blog.id] = blog ));
-      return blogsObj;
-    } else {
-      return this.props.blogs;
-    }
-  }
-
-  update() {
-    console.log('update called');
-    this.didMapBlogs = false;
-    this.initBlogs();
-  }
-
-  mapBlogs() {
-    if (this.didMapBlogs) { return; }
-    let blogKeys = Object.keys(this.blogs);
-
-    if (blogKeys.length > 0 && this.blogs.constructor === Object) {
-      this.didMapBlogs = true;
-
-      let blogLis = blogKeys.map((blogKey, i) => (
+      blogLis = this.props.currentUser.blogs.map((blog, i) => (
         <li key={i} className='blog'>
-          <BlogLinkContainer blog={ this.blogs[blogKey] }
-            isUserBlogs={ this.props.isUserBlogs }
-            update={ this.update } />
+          <BlogLinkContainer blog={ blog }
+            isUserBlogs={ this.props.isUserBlogs } />
         </li>
       ));
-
-      console.log('about to setState in mapBlogs');
-
-      this.setState({
-        blogLis: blogLis
-      });
-
+    } else {
+      blogLis = Object.keys(this.props.blogs).map((id, i) => (
+        <li key={i} className='blog'>
+          <BlogLinkContainer blog={ this.props.blogs[id] } />
+        </li>
+      ));
     }
+    return blogLis;
   }
 
   render() {
-    let title = this.props.isUserBlogs ? 'MY' : 'RECENT';
-
-    // check state
-    // debugger;
+    let title = this.props.isUserBlogs ? 'MY' : 'RECENT',
+        blogLis = this.mapBlogLis();
 
     return (
       <section className='blogs-box'>
-        <span className='second-title'>{ title } BLOGS</span>
-        <ul className='blogs'>{ this.state.blogLis }</ul>
+        <h3 className='second-title'>{ title } BLOGS</h3>
+        <ul className='blogs'>{ blogLis }</ul>
       </section>
     );
   }

@@ -2,7 +2,11 @@
   json.set! blog.id do
     json.extract! blog,
       :id,
+      :author_id,
+      :author,
       :title,
-      :created_at
+      :body,
+      :created_at,
+      :updated_at
   end
 end

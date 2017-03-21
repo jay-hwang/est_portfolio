@@ -4,4 +4,5 @@ json.extract! @user,
   :last_name,
   :username,
   :email,
-  :profile_pic_url
+  :profile_pic_url,
+  :blogs

@@ -17,8 +17,8 @@ export const _getBlogs = store => {
 
 export const _getUserBlogs = store => {
   return () => {
-    store.getState().session.currentUser.blogs.forEach(blog => {
-      store.dispatch(requestBlog(blog.id));
-    });
+    // store.getState().session.currentUser.blogs.forEach(blog => {
+    //   store.dispatch(requestBlog(blog.id));
+    // });
   };
 };

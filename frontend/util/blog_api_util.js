@@ -18,19 +18,19 @@ export const updateBlog = (blog, success, error) => {
   });
 };
 
-export const deleteBlog = (blogId, success, error) => {
+export const deleteBlog = (id, success, error) => {
   $.ajax ({
     method: 'DELETE',
-    url: `api/blogs/${blogId}`,
+    url: `api/blogs/${id}`,
     success,
     error
   });
 };
 
-export const fetchBlog = (blogId, success, error) => {
+export const fetchBlog = (id, success, error) => {
   $.ajax ({
     method: 'GET',
-    url: `api/blogs/${blogId}`,
+    url: `api/blogs/${id}`,
     success,
     error
   });
