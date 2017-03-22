@@ -7,9 +7,9 @@ const DeleteCommentBtn = ({ props }) => {
     // Very basic admin auth
     if (props.currentUser.id === 1 || props.currentUser.id === 2) {
       return (
-        <div className='delete-comment' onClick={ handleDelete }>
+        <button className='delete-comment btn' onClick={ handleDelete }>
           DELETE
-        </div>
+        </button>
       );
     }
   } else {

@@ -7,4 +7,10 @@ class Blog < ApplicationRecord
     class_name: :User
 
   has_many :comments
+
+  has_many :taggings
+
+  has_many :tags,
+    through: :taggings,
+    source: :tag
 end

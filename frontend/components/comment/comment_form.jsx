@@ -12,20 +12,16 @@ class CommentForm extends React.Component {
       author_id: ''
     };
 
+    this.defaultState = this.state;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.hideCommentForm = this.hideCommentForm.bind(this);
   }
 
   componentDidUpdate() {
     if (this.props.blog.id && !this.state.blog_id) {
       this.state.blog_id = this.props.blog.id;
     }
-  }
-
-  hideCommentForm() {
-    debugger;
-    $('.comment-form').slideUp();
   }
 
   handleChange(field) {
@@ -35,24 +31,29 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const comment = this.state;
-    this.props.loggedIn ? comment.author_id = this.props.currentUser.id : 3;
+    comment.author_id = this.props.loggedIn ? this.props.currentUser.id : 3;
     this.props.createComment(comment);
+    let defaultState = this.defaultState;
+    this.setState({ defaultState });
   }
 
   render() {
     return (
-      <form className='comment-form display-none' onSubmit={ this.handleSubmit }>
+      <form className='comment-form' name='commentForm' onSubmit={ this.handleSubmit }>
         <input type='text'
+          className='form-input'
           onChange={ this.handleChange('author_name') }
           value={ this.state.author_name }
           placeholder='Full Name' />
 
         <input type='text'
+          className='form-input'
           onChange={ this.handleChange('author_email') }
           value={ this.state.author_email }
           placeholder='Email' />
 
         <input type='text'
+          className='form-input'
           onChange={ this.handleChange('body') }
           value={ this.state.body }
           placeholder='Write your comment here' />

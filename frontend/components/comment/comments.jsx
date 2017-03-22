@@ -7,7 +7,6 @@ class Comments extends React.Component {
     super(props);
 
     this.mapComments = this.mapComments.bind(this);
-    this.showCommentForm = this.showCommentForm.bind(this);
   }
 
   componentDidMount() {
@@ -28,22 +27,13 @@ class Comments extends React.Component {
     ));
   }
 
-  showCommentForm() {
-    $('.comment-form').slideDown();
-  }
-
   render() {
     let commentLis = this.mapComments(this.props.blog);
 
     return (
       <div className='comment'>
-
-        <button className='add-comment-btn' onClick={ this.showCommentForm }>
-          Add a Comment
-        </button>
-
         <CommentFormContainer blog={ this.props.blog } />
-
+        <h3 className='header'>COMMENTS</h3>
         <ul className='comments'>
           { commentLis }
         </ul>

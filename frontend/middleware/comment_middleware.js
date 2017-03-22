@@ -20,8 +20,8 @@ import CommentForm from '../components/comment/comment_form';
 
 const CommentMiddleware = ({ getState, dispatch }) => next => action => {
   const createCommentSuccess = comment => {
-    // $('.comment-form').slideUp();
     dispatch(receiveComment(comment));
+    $('.comment-form :input').val('');
   };
   const commentSuccess = comment => dispatch(receiveComment(comment));
   const commentsSuccess = comments => dispatch(receiveComments(comments));

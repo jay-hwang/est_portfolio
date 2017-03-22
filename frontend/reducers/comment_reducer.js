@@ -14,7 +14,7 @@ const _defaultState = {
 const CommentReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
-
+  
   switch(action.type) {
     case RECEIVE_COMMENT:
       newState.index[action.comment.id] = action.comment;
