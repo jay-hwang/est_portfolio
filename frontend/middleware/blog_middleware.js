@@ -4,11 +4,9 @@ import {
   REQUEST_BLOGS,
   UPDATE_BLOG,
   DELETE_BLOG,
-  requestBlogs,
-  requestBlog,
-  removeBlog,
   receiveBlog,
   receiveBlogs,
+  removeBlog,
   receiveBlogErrors
 } from '../actions/blog_actions';
 

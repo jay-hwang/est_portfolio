@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import Blog from './blog';
+import Comment from './comment';
+import { deleteComment } from '../../actions/comment_actions';
 import { requestBlog } from '../../actions/blog_actions';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
-  currentUser: state.session.currentUser,
-  blogs: state.blogs.index,
-  comments: state.comments.index
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestBlog: blogId => dispatch(requestBlog(blogId))
+  deleteComment: id => dispatch(deleteComment(id)),
+  requestBlog: id => dispatch(requestBlog(id))
 });
 
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(Blog);
+)(Comment);

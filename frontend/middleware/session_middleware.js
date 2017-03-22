@@ -17,22 +17,14 @@ import {
   deleteUser
 } from '../util/session_api_util';
 
-const SessionMiddleware = store => next => action => {
-  const successCB = user => {
-    store.dispatch(receiveCurrentUser(user));
-  };
-
-  const deleteUserSuccessCB = user => {
-    store.dispatch(deleteUserAction(user));
-  };
-
-  const errorCB = errors => {
-    store.dispatch(receiveErrors(errors.responseJSON));
-  };
+const SessionMiddleware = ({ getState, dispatch }) => next => action => {
+  const userSuccess = user => dispatch(receiveCurrentUser(user));
+  const deleteUserSuccess = user => dispatch(deleteUserAction(user));
+  const error = errors => dispatch(receiveErrors(errors.responseJSON));
 
   switch(action.type) {
     case LOGIN:
-      login(action.user, successCB, errorCB);
+      login(action.user, userSuccess, error);
       return next(action);
 
     case LOGOUT:
@@ -40,15 +32,15 @@ const SessionMiddleware = store => next => action => {
       return next(action);
 
     case SIGNUP:
-      signup(action.user, successCB, errorCB);
+      signup(action.user, userSuccess, error);
       return next(action);
 
     case UPDATE_USER:
-      updateUser(action.user, successCB, errorCB);
+      updateUser(action.user, userSuccess, error);
       return next(action);
 
     case DELETE_USER:
-      deleteUser(action.id, deleteUserSuccessCB, errorCB);
+      deleteUser(action.id, deleteUserSuccess, error);
       return next(action);
 
     default:

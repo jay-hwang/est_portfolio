@@ -20,6 +20,12 @@ import {
   deleteBlog
 } from './actions/blog_actions';
 
+import {
+  createComment,
+  requestComment,
+  deleteComment
+} from './actions/comment_actions';
+
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.getElementById('main');
 
@@ -54,5 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
   window.updateBlog = updateBlog;
   window.deleteBlog = deleteBlog;
 
+  window.createComment = createComment;
+  window.requestComment = requestComment;
+  window.deleteComment = deleteComment;
+
   ReactDOM.render(<Root store={store} />, main);
 });
+
+
+// comment = {
+//   body: 'hello i am a comment body about random things',
+//   blog_id: 1,
+//   author_name: 'Jay',
+//   author_email: 'jay@gmail.com',
+//   author_id: 2
+// }

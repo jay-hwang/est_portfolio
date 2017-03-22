@@ -8,25 +8,6 @@ export const createBlog = (blog, success, error) => {
   });
 };
 
-export const updateBlog = (blog, success, error) => {
-  $.ajax ({
-    method: 'PATCH',
-    url: `api/blogs/${blog.id}`,
-    data: { blog },
-    success,
-    error
-  });
-};
-
-export const deleteBlog = (id, success, error) => {
-  $.ajax ({
-    method: 'DELETE',
-    url: `api/blogs/${id}`,
-    success,
-    error
-  });
-};
-
 export const fetchBlog = (id, success, error) => {
   $.ajax ({
     method: 'GET',
@@ -41,6 +22,25 @@ export const fetchBlogs = (success, error) => {
   $.ajax ({
     method: 'GET',
     url: 'api/blogs',
+    success,
+    error
+  });
+};
+
+export const updateBlog = (blog, success, error) => {
+  $.ajax ({
+    method: 'PATCH',
+    url: `api/blogs/${blog.id}`,
+    data: { blog },
+    success,
+    error
+  });
+};
+
+export const deleteBlog = (id, success, error) => {
+  $.ajax ({
+    method: 'DELETE',
+    url: `api/blogs/${id}`,
     success,
     error
   });

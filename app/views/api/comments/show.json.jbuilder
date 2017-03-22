@@ -1,4 +1,5 @@
 json.extract! @comment,
+  :id,
   :body,
   :blog_id,
   :blog,
