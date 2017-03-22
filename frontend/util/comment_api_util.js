@@ -17,6 +17,16 @@ export const fetchComment = (id, success, error) => {
   });
 };
 
+export const fetchComments = (blogId, success, error) => {
+  $.ajax ({
+    method: 'GET',
+    url: 'api/comments',
+    data: { blogId },
+    success,
+    error
+  });
+};
+
 export const deleteComment = (id, success, error) => {
   $.ajax ({
     method: 'DELETE',

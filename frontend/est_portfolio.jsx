@@ -23,6 +23,7 @@ import {
 import {
   createComment,
   requestComment,
+  requestComments,
   deleteComment
 } from './actions/comment_actions';
 
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.createComment = createComment;
   window.requestComment = requestComment;
+  window.requestComments = requestComments;
   window.deleteComment = deleteComment;
 
   ReactDOM.render(<Root store={store} />, main);

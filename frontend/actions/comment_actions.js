@@ -10,6 +10,12 @@ export const requestComment = id => ({
   id
 });
 
+export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
+export const requestComments = blogId => ({
+  type: REQUEST_COMMENTS,
+  blogId
+});
+
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 export const deleteComment = id => ({
   type: DELETE_COMMENT,
@@ -20,6 +26,12 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const receiveComment = comment => ({
   type: RECEIVE_COMMENT,
   comment
+});
+
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
+export const receiveComments = comments => ({
+  type: RECEIVE_COMMENTS,
+  comments
 });
 
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';

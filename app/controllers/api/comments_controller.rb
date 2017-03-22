@@ -12,6 +12,10 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  def index
+    @comments = Comment.all.where(blog_id: params[:blogId])
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     id = @comment.id

@@ -1,10 +1,7 @@
 import React from 'react';
 
 const DeleteCommentBtn = ({ props }) => {
-  const handleDelete = () => {
-    props.deleteComment(props.comment.id);
-    props.requestBlog(props.blog.id);
-  };
+  const handleDelete = () => props.deleteComment(props.comment.id);
 
   if (props.loggedIn) {
     // Very basic admin auth

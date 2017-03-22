@@ -7,7 +7,9 @@ class Comment < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :author_email,
-    length: { maximum: 250 },
+    length: { maximum: 250, allow_nil: true },
+    allow_blank: true,
+    presence: { :message => '' },
     format: { with: VALID_EMAIL_REGEX }
 
   belongs_to :blog

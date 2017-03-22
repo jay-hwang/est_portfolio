@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 import {
   RECEIVE_COMMENT,
+  RECEIVE_COMMENTS,
   REMOVE_COMMENT,
   RECEIVE_COMMENT_ERRORS
 } from '../actions/comment_actions';
@@ -13,10 +14,15 @@ const _defaultState = {
 const CommentReducer = (oldState = _defaultState, action) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
-  
+
   switch(action.type) {
     case RECEIVE_COMMENT:
       newState.index[action.comment.id] = action.comment;
+      newState.errors = [];
+      return newState;
+
+    case RECEIVE_COMMENTS:
+      newState.index = action.comments;
       newState.errors = [];
       return newState;
 
