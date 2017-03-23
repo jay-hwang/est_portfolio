@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import { _mapErrorsToHTML } from '../../util/helper_methods';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class SessionForm extends React.Component {
       password: ''
     };
 
-    this.errorsL = null;
+    this.errorsLi = null;
 
     this.hideMenu = this.props.hideMenu.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,9 +30,7 @@ class SessionForm extends React.Component {
   }
 
   handleChange(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
+    return e => this.setState({ [field]: e.target.value });
   }
 
   hideSessionForm() {
@@ -47,9 +46,7 @@ class SessionForm extends React.Component {
   render() {
     const errors = this.props.errors;
     if (errors) {
-      this.errorsLi = errors.map((error, i) => (
-        <li key={i} className='error'>{ error }</li>
-      ));
+      this.errorsLi = _mapErrorsToHTML(errors);
     }
 
     return (

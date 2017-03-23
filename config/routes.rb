@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :show, :index, :destroy]
     resources :tags
     resources :taggings, only: [:create, :show, :index, :destroy]
+    resources :subscriptions, only: [:create, :show, :index, :destroy]
   end
 end

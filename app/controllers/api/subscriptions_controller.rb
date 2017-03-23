@@ -2,9 +2,10 @@ class Api::SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     if @subscription.save
+      SubscriptionMailer.welcome_email(@subscription).deliver_now
       render :show
     else
-      render json: @subscription.errors.full_messages
+      render json: @subscription.errors.full_messages, status: 422
     end
   end
 

@@ -11,9 +11,8 @@ import UserBlogsContainer from './blog/user_blogs_container';
 import BlogContainer from './blog/blog_container';
 import {
   _redirectUnlessLoggedIn,
-  _getBlogs,
-  _getUserBlogs
-} from '../util/helper_methods';
+  _getBlogs
+} from '../util/helper_methods.jsx';
 
 const Root = ({ store }) => {
   return (
@@ -46,8 +45,7 @@ const Root = ({ store }) => {
           </Route>
 
           <Route path='/blogs/user'
-            component={ UserBlogsContainer }
-            onEnter={ _getUserBlogs(store) }>
+            component={ UserBlogsContainer }>
           </Route>
 
           <Route path='/blogs/:blog_id'

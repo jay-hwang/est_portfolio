@@ -2,7 +2,7 @@ import React from 'react';
 import Splash from './splash/splash';
 import Navbar from './navbar/navbar';
 import Footer from './footer/footer';
-import Subscribe from './subscribe/subscribe';
+import SubscriptionFormContainer from './subscription/subscription_form_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div id='app'>
         <Navbar />
-        <Subscribe />
+        <SubscriptionFormContainer />
         {this.props.children}
       </div>
     );

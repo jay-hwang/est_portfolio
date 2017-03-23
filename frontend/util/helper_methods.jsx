@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   requestBlog,
   requestBlogs
@@ -15,10 +16,8 @@ export const _getBlogs = store => {
   };
 };
 
-export const _getUserBlogs = store => {
-  return () => {
-    // store.getState().session.currentUser.blogs.forEach(blog => {
-    //   store.dispatch(requestBlog(blog.id));
-    // });
-  };
-};
+export const _mapErrorsToHTML = errors => (
+  errors.map((e, i) => (
+    <li key={i} className='error'>{ e }</li>
+  ))
+);

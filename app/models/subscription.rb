@@ -8,5 +8,4 @@ class Subscription < ApplicationRecord
     length: { maximum: 250 },
     uniqueness: { case_sensitive: false },
     format: { with: VALID_EMAIL_REGEX }
-
 end
