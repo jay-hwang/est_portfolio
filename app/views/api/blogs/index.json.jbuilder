@@ -8,6 +8,8 @@
       :body,
       :created_at,
       :updated_at,
-      :comments
+      :comments,
+      :tags,
+      :taggings
   end
 end

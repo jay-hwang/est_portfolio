@@ -1,5 +1,7 @@
 import React from 'react';
 import CommentsContainer from '../comment/comments_container';
+import TagsContainer from '../tag/tags_container';
+import TaggingsContainer from '../tagging/taggings_container';
 
 class Blog extends React.Component {
   constructor(props) {
@@ -33,6 +35,8 @@ class Blog extends React.Component {
             <p className='body'>{ blog.body }</p>
           </div>
 
+          <TaggingsContainer blog={ blog } />
+          <TagsContainer blog={ blog } />
           <CommentsContainer blog={ blog } />
         </section>
       );

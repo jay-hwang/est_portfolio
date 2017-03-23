@@ -13,4 +13,8 @@ class Blog < ApplicationRecord
   has_many :tags,
     through: :taggings,
     source: :tag
+
+  def self.find_by_tags(*tags)
+    Blog.select('*').joins(:tags).where(tags: { name: tags })
+  end
 end

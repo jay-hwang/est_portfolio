@@ -6,4 +6,6 @@ json.extract! @blog,
   :body,
   :created_at,
   :updated_at,
-  :comments
+  :comments,
+  :tags,
+  :taggings

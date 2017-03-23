@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# USERS
+
 User.create({
   first_name: "Esther",
   last_name: "Gibbs",
@@ -32,3 +34,34 @@ User.create({
   password: "password",
   profile_pic_url: "https://res.cloudinary.com/ddgtwtbre/image/upload/v1482131647/person-solid_telh7f.png"
 });
+
+# TAGS
+
+tags = [
+  'Abortion',
+  'Children',
+  'Child Labor',
+  'Child Trafficking',
+  'Christian',
+  'Collaboration',
+  'Corruption',
+  'Environment',
+  'Economy',
+  'Health',
+  'Men',
+  'Non-Profit-Organizations',
+  'Politics',
+  'Problematics',
+  'Rescue',
+  'Sex Trafficking',
+  'Slavery',
+  'Trafficking',
+  'Unfair Wages',
+  'Women'
+]
+
+tags.each do |tag|
+  Tag.create({
+    name: tag
+  })
+end

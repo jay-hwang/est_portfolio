@@ -5,10 +5,20 @@
 #app {
 }
 
+.box {
+  width: 600px;
+  margin: 50px auto;
+  border: 1px solid grey;
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
   cursor: pointer;
   outline: none;
-  transition: filter .2s ease-in;
+  // transition: * .2s ease-in;
 }
 
 .btn:hover {
