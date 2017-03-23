@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170322192149) do
     t.integer  "blog_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tag_id", "blog_id"], name: "index_taggings_on_tag_id_and_blog_id", unique: true, using: :btree
   end
 
   create_table "tags", force: :cascade do |t|

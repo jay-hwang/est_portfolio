@@ -7,6 +7,7 @@ class Tags extends React.Component {
 
     this.mapTags = this.mapTags.bind(this);
     this.isActive = this.isActive.bind(this);
+    this.hideTags = this.hideTags.bind(this);
 
     this.blogTags = {};
     props.blog.tags.forEach(tag => { this.blogTags[tag.id] = tag; });
@@ -33,12 +34,16 @@ class Tags extends React.Component {
     ));
   }
 
+  hideTags() {
+    $('.tags-box').slideUp();
+  }
+
   render() {
     let tags = this.mapTags();
 
     return (
-      <div>
-        <h3 className='header'>Tags</h3>
+      <div className='tags-box position-relative display-none'>
+        <div className='exit' onClick={ this.hideTags }>x</div>
         <div className='tags'>
           { tags }
         </div>

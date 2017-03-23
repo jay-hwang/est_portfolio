@@ -5,16 +5,6 @@
 #app {
 }
 
-.box {
-  width: 600px;
-  margin: 50px auto;
-  border: 1px solid grey;
-  border-radius: 3px;
-
-  display: flex;
-  flex-direction: column;
-}
-
 .btn {
   cursor: pointer;
   outline: none;
@@ -64,4 +54,28 @@
 
 .display-none {
   display: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.exit {
+  width: 25px;
+  height: 25px;
+
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  color: #fff;
+}
+
+.dark-veil {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  min-height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 350;
 }

@@ -5,10 +5,10 @@ const Tagging = props => {
 
   return (
     <div className='tag btn'>
-      <div className='delete-tagging' onClick={ deleteTagging }>
-        X
-      </div>
       { props.tagging.tag.name }
+      <span className='delete-tagging' onClick={ deleteTagging }>
+        X
+      </span>
     </div>
   );
 };

@@ -9,6 +9,7 @@ class Blog extends React.Component {
 
     this.blogId = this.props.routeParams.blog_id;
     this.mapBlog = this.mapBlog.bind(this);
+    this.showTags = this.showTags.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,10 @@ class Blog extends React.Component {
   mapBlog() {
     if (!this.props.blogs[this.blogId]) { return null; }
     return this.props.blogs[this.blogId];
+  }
+
+  showTags() {
+    $('.tags-box').slideDown();
   }
 
   render() {
@@ -36,6 +41,9 @@ class Blog extends React.Component {
           </div>
 
           <TaggingsContainer blog={ blog } />
+          <button className='btn show-tags'
+            onClick={ this.showTags }>ADD TAGS
+          </button>
           <TagsContainer blog={ blog } />
           <CommentsContainer blog={ blog } />
         </section>

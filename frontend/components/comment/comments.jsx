@@ -7,6 +7,7 @@ class Comments extends React.Component {
     super(props);
 
     this.mapComments = this.mapComments.bind(this);
+    this.showCommentForm = this.showCommentForm.bind(this);
   }
 
   componentDidMount() {
@@ -27,16 +28,29 @@ class Comments extends React.Component {
     ));
   }
 
+  showCommentForm() {
+    $('.dark-veil').fadeIn();
+    $('.comment-form').removeClass('display-none');
+    $('.comment-form').animate({ right: "+=1000" }, 200);
+  }
+
   render() {
     let commentLis = this.mapComments(this.props.blog);
 
     return (
-      <div className='comment'>
+      <div>
+        <button className='btn add-comment'
+          onClick={ this.showCommentForm }>ADD COMMENT
+        </button>
         <CommentFormContainer blog={ this.props.blog } />
-        <h3 className='header'>COMMENTS</h3>
-        <ul className='comments'>
-          { commentLis }
-        </ul>
+
+        <div className='comments-box'>
+          <div className='dark-veil display-none'></div>
+          <h3 className='header'>COMMENTS</h3>
+          <ul className='comments'>
+            { commentLis }
+          </ul>
+        </div>
       </div>
     );
   }

@@ -3,34 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tags {
-  max-width: 700px;
+  width: 850px;
   max-height: 250px;
   overflow-y: scroll;
-
-  // background-color: lightblue;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // align-items: center;
 
   margin: 50px auto;
 }
 
 .tag {
-  width: 175px;
+  width: 225px;
   height: 35px;
 
   border: 1px solid #333;
   border-radius: 5px;
 
-  // background-color: lightgrey;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   margin: 10px 20px;
+
+  font-size: 15px;
 }
 
 .tag:hover {
@@ -38,6 +37,20 @@
   color: #fff;
 }
 
+.tags-box {
+  width: 800px;
+  margin: 0 auto;
+}
+
 .taggings {
-  
+  width: 850px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.delete-tagging {
+  position: absolute;
+  right: 10px;
 }

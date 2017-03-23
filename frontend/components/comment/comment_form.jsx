@@ -37,9 +37,19 @@ class CommentForm extends React.Component {
     this.setState({ defaultState });
   }
 
+  hideCommentForm() {
+    $('.dark-veil').fadeOut();
+    $('.comment-form').animate({ right: '-=1000' }, 200);
+    setTimeout(() => {
+      $('.comment-form').addClass('display-none');
+    }, 500);
+  }
+
   render() {
     return (
-      <form className='comment-form' name='commentForm' onSubmit={ this.handleSubmit }>
+      <div className='comment-form-box'>
+      <form className='comment-form display-none' onSubmit={ this.handleSubmit }>
+        <div className='exit' onClick={ this.hideCommentForm }>x</div>
         <input type='text'
           className='form-input'
           onChange={ this.handleChange('author_name') }
@@ -53,13 +63,14 @@ class CommentForm extends React.Component {
           placeholder='Email' />
 
         <input type='text'
-          className='form-input'
+          className='form-input comment-input'
           onChange={ this.handleChange('body') }
           value={ this.state.body }
           placeholder='Write your comment here' />
 
         <button className='btn submit-btn'>Post Comment</button>
       </form>
+      </div>
     );
   }
 }
