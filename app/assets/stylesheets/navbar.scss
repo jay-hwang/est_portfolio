@@ -80,7 +80,8 @@
 
   height: 100vh;
   width: 350px;
-  background-color: #83d3c9;
+  // background-color: #83d3c9;
+  background-color: whitesmoke;
 
   z-index: 300;
 }
@@ -104,9 +105,10 @@
 .menu-li {
   height: 50px;
 
-  color: #fff;
+  color: #2e3842;
   letter-spacing: 3px;
   font-size: 15px;
+  font-weight: 700;
 
   display: flex;
   align-items: center;
@@ -119,17 +121,23 @@
 .divider {
   width: 90%;
   height: 1px;
-  background-color: #70c0b6;
+  background-color: #2e3842;
   margin: 0 auto;
   border-top: -1px;
+  transition: 'all' .2s ease-in;
 }
 
 .menu-li:hover {
-  transition: background .2s ease-in;
-  border: 1px solid #70c0b6;
-  background-color: #70c0b6;
+  transition: 'all' .2s ease-in;
+  background-color: #2e3842;
+  color: #fff;
 }
 
 .menu-li:hover + .divider {
+  transition: 'all' .2s ease-in;
   width: 100%;
+}
+
+#nav-menu-exit {
+  color: #2e3842;
 }

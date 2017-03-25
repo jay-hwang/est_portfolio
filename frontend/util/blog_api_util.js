@@ -18,10 +18,11 @@ export const fetchBlog = (id, success, error) => {
 };
 
 // fetch all blogs will eventually receive a 'tags' params as data: tags
-export const fetchBlogs = (success, error) => {
+export const fetchBlogs = (tags, success, error) => {
   $.ajax ({
     method: 'GET',
     url: 'api/blogs',
+    data: { tags },
     success,
     error
   });

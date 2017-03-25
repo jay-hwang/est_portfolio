@@ -55,7 +55,7 @@ class BlogForm extends React.Component {
       this.props.updateBlog(blog, this.props.router);
     }
 
-    this.props.router.push('/blogs/user');
+    this.props.router.push(`/blogs/${blog.id}`);
   }
 
   handleChange(field) {
@@ -83,7 +83,7 @@ class BlogForm extends React.Component {
             placeholder='Blog Title'
             className='blog-input' />
 
-          <textarea className='blog-body blog-input'
+          <textarea className='blog-body-input blog-input'
             value={ this.state.body }
             onChange={ this.handleChange('body') }
             placeholder='Write your blog here...' />

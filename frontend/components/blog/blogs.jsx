@@ -1,5 +1,6 @@
 import React from 'react';
-import BlogLinkContainer from './blog_link_container';
+import BlogLinkContainer from './blog_link/blog_link_container';
+import BlogFilterContainer from '../filter/blog_filter_container';
 
 class Blogs extends React.Component {
   constructor(props) {
@@ -9,22 +10,23 @@ class Blogs extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestBlogs();
+    this.props.requestBlogs({});
   }
 
   mapBlogLis() {
     let blogLis = [];
     if (this.props.isUserBlogs) {
       blogLis = this.props.currentUser.blogs.map((blog, i) => (
-        <li key={i} className='blog'>
+        <li key={i}>
           <BlogLinkContainer blog={ blog }
             isUserBlogs={ this.props.isUserBlogs } />
         </li>
       ));
     } else {
       blogLis = Object.keys(this.props.blogs).map((id, i) => (
-        <li key={i} className='blog'>
-          <BlogLinkContainer blog={ this.props.blogs[id] } />
+        <li key={i}>
+          <BlogLinkContainer blog={ this.props.blogs[id] }
+            isSplash={ this.props.isSplash }/>
         </li>
       ));
     }
@@ -35,12 +37,23 @@ class Blogs extends React.Component {
     let title = this.props.isUserBlogs ? 'MY' : 'RECENT',
         blogLis = this.mapBlogLis();
 
-    return (
-      <section className='blogs-box'>
-        <h3 className='second-title'>{ title } BLOGS</h3>
-        <ul className='blogs'>{ blogLis }</ul>
-      </section>
-    );
+    if (this.props.isSplash || this.props.isUserBlogs) {
+      return (
+        <section className='blogs-box'>
+          <h3 className='second-title'>{ title } BLOGS</h3>
+          <ul className='blogs'>{ blogLis }</ul>
+        </section>
+      );
+    } else {
+      return (
+        <div className='blogs-index'>
+          <section className='blogs-box-large'>
+            <ul className='blogs-large'>{ blogLis }</ul>
+          </section>
+          <BlogFilterContainer />
+        </div>
+      );
+    }
   }
 }
 

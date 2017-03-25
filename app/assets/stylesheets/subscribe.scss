@@ -36,7 +36,7 @@
 
 .subscribe-field {
   width: 100%;
-  height: 20px;
+  height: 40px;
   padding: 10px;
 
   margin: 5px;
@@ -46,7 +46,7 @@
 
 .subscribe-submit-btn {
   width: 100%;
-  height: 25px;
+  height: 45px;
   padding: 10px;
 
   margin: 5px;
@@ -63,19 +63,4 @@
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 2px;
-}
-
-.exit {
-  width: 20px;
-
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-
-  position: absolute;
-  top: 15px;
-  right: 15px;
-
-  cursor: pointer;
 }

@@ -4,17 +4,12 @@
 
 .blogs-box {
   width: 100%;
-  min-height: 400px;
-
-  // background-color: #83d3c9;
-  // background-color: #21b2a6;
-
-  background: rgba(0,0,0,0);
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
+  background: rgba(0,0,0,0);
   margin-top: 60px;
   padding: 60px 0;
 }
@@ -26,41 +21,40 @@
   flex-wrap: wrap;
 }
 
-.blog-link {
-  background-color: lightgrey;
 
-  width: 300px;
-  height: 300px;
+// Blog show CSS
 
-  margin: 15px;
-  position: relative;
+.blog {
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 60px;
+  width: 80%;
+}
+
+.blog-body {
+  width: 100%;
+  min-height: 700px;
+  height: auto;
+  background-color: #fff;
+  padding: 80px 60px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  text-shadow: grey 0 0 10px;
-  text-align: center;
-  color: #fff;
-  letter-spacing: 2px;
-
-  cursor: pointer;
+  font-size: 19px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  color: #5f5f5f;
 }
 
-.blog-title {
-  font-size: 25px;
-  font-weight: 700;
+// .blog-intro {
+//   font-size: 15px;
+//   line-height: 20px;
+//   width: 80%;
+// }
 
-  border-bottom: 2px solid #fff;
-  margin-bottom: 20px;
-}
-
-.blog-intro {
-  font-size: 15px;
-  line-height: 20px;
-  width: 80%;
-}
+// Blog Helper Components CSS
 
 .blog-actions {
   width: 90%;
@@ -77,72 +71,28 @@
   color: green;
 }
 
-.blog-form-box {
-  background-color: whitesmoke;
-  width: 100%;
-  padding: 50px 0;
-}
-
-.blog-form {
-  background-color: lightgrey;
-  width: 500px;
-  height: 600px;
-
-  margin: 0 auto;
-  margin-top: 60px;
+.blog-nav {
+  width: 80%;
+  height: 200px;
+  background-color: lightblue;
 
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
 }
 
-.blog-input {
-  width: 80%;
-  height: 30px;
+.bn-btn {
+  width: 45%;
+  height: 100%;
 
-  border-radius: 3px;
+  background-color: orange;
 }
 
-.blog-body {
-  width: 80%;
-  height: 250px;
-  outline: none;
-  border: none;
-  resize: none;
+.bn-head {
+  font-size: 12px;
+  color: #2e3842;
 }
 
-.blog-submit-btn {
-  width: 80%;
-  height: 30px;
-  background-color: pink;
-  cursor: pointer;
-  transition: background .15s ease-in;
-}
-
-.blog-submit-btn:hover {
-  background-color: pink;
-  transition: background .15s ease-in;
-}
-
-.blog-show {
-  width: 600px;
-  min-height: 500px;
-  margin: 0 auto;
-  margin-top: 60px;
-
-  padding: 40px 0;
-
-  border: 1px solid lightgrey;
-}
-
-.header {
-  margin: 0 auto;
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-
-.body {
-  
+.bn-content {
+  display: flex;
 }

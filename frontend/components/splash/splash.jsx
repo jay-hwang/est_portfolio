@@ -30,7 +30,7 @@ class Splash extends React.Component {
 
           <Intro1 />
           <Intro2 />
-          <BlogsContainer blogs={ this.props.blogs } />
+          <BlogsContainer isSplash={ true } blogs={ this.props.blogs } />
           <Contact />
 
         </div>

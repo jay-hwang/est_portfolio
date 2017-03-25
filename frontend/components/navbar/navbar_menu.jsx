@@ -52,7 +52,7 @@ class NavbarMenu extends React.Component {
     return (
       <div className='menu-background display-none'>
         <div className='menu'>
-          <span className='exit' onClick={ this.hideMenu }>X</span>
+          <span className='exit' id='navmenu-exit' onClick={ this.hideMenu }>x</span>
           <ul className='menu-ul'>
             <li className='menu-li' onClick={ this.homeClick }>HOME</li>
             <div className='divider'></div>

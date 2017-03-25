@@ -2,44 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.tags-box {
+  margin: 60px auto;
+}
+
 .tags {
-  width: 850px;
-  max-height: 250px;
-  overflow-y: scroll;
+  width: 100%;
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
 
-  margin: 50px auto;
+  margin: 0px auto;
 }
 
 .tag {
-  width: 225px;
-  height: 35px;
-
+  height: 25px;
   border: 1px solid #333;
-  border-radius: 5px;
+  border-radius: 3px;
+  margin: 5px 10px 5px 0;
+  padding: 7px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  position: relative;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-  margin: 10px 20px;
-
+.tag-header {
   font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-align: right;
+  padding: 10px;
+
+  width: 100%;
+  // border-bottom: 1px solid #2e3842;
+  margin: 0 auto;
+  // background-color: blue;
 }
 
 .tag:hover {
-  background-color: silver;
-  color: #fff;
-}
-
-.tags-box {
-  width: 800px;
-  margin: 0 auto;
+  color: #f94d4d;
 }
 
 .taggings {

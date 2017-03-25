@@ -11,8 +11,9 @@ export const requestBlog = id => ({
 });
 
 export const REQUEST_BLOGS = 'REQUEST_BLOGS';
-export const requestBlogs = () => ({
-  type: REQUEST_BLOGS
+export const requestBlogs = tags => ({
+  type: REQUEST_BLOGS,
+  tags
 });
 
 export const UPDATE_BLOG = 'UPDATE_BLOG';

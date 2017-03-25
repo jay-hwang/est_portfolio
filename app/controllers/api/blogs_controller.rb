@@ -13,7 +13,9 @@ class Api::BlogsController < ApplicationController
   end
 
   def index
-    @blogs = Blog.all
+    blogs = Blog.all
+    blogs = Blog.find_by_tags(params[:tags]) if params[:tags]
+    @blogs = blogs
   end
 
   def update
@@ -42,5 +44,10 @@ class Api::BlogsController < ApplicationController
         :created_at,
         :updated_at
       )
+    end
+
+    def filter_blogs(filters)
+      blogs = Blog.all
+      blogs = Blog.find_by_tags(*filters[:tags]) if filters[:tags]
     end
 end

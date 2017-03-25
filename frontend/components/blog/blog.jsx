@@ -2,6 +2,8 @@ import React from 'react';
 import CommentsContainer from '../comment/comments_container';
 import TagsContainer from '../tag/tags_container';
 import TaggingsContainer from '../tagging/taggings_container';
+import BlogNav from './helper/blog_nav';
+import RelatedBlogsContainer from './helper/related_blogs_container';
 
 class Blog extends React.Component {
   constructor(props) {
@@ -10,6 +12,10 @@ class Blog extends React.Component {
     this.blogId = this.props.routeParams.blog_id;
     this.mapBlog = this.mapBlog.bind(this);
     this.showTags = this.showTags.bind(this);
+
+    // UNDER CONSTRUCTION
+    // this.nextBlog = this.nextBlog.bind(this);
+    // this.previousBlog = this.previousBlog.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +31,15 @@ class Blog extends React.Component {
     $('.tags-box').slideDown();
   }
 
+  // UNDER CONSTRUCTION
+  // nextBlog(blog) {
+  //   let next = this.props.blogs[blog.id - 1];
+  // }
+  //
+  // previousBlog(blog) {
+  //   let previous = this.props.blogs[blog.id + 1];
+  // }
+
   render() {
     let blog = this.mapBlog();
 
@@ -33,20 +48,26 @@ class Blog extends React.Component {
         <div></div>
       );
     } else {
-      return (
-        <section className='blog-box'>
-          <div className='blog-show'>
-            <h3 className='header'>{ blog.title }</h3>
-            <p className='body'>{ blog.body }</p>
-          </div>
+      // let next = this.nextBlog(blog), previous = this.previousBlog(blog);
 
-          <TaggingsContainer blog={ blog } />
-          <button className='btn show-tags'
-            onClick={ this.showTags }>ADD TAGS
-          </button>
-          <TagsContainer blog={ blog } />
-          <CommentsContainer blog={ blog } />
-        </section>
+      return (
+        <div className='blog'>
+          <div className='blink-large'>
+            <div className='blink-img'>
+
+            </div>
+
+            <div className='blink-intro'>
+              <span className='blink-title'>{ blog.title }</span>
+              <p className='blink-body'>
+                { blog.body }
+              </p>
+            </div>
+
+            <RelatedBlogsContainer blog={ blog }
+              requestBlogs={ this.props.requestBlogs } />
+          </div>
+        </div>
       );
     }
   }

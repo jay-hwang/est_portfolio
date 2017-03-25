@@ -1,0 +1,48 @@
+.blog-form-box {
+  background-color: whitesmoke;
+  width: 100%;
+  padding: 50px 0;
+}
+
+.blog-form {
+  background-color: lightgrey;
+  width: 500px;
+  height: 600px;
+
+  margin: 0 auto;
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.blog-input {
+  width: 80%;
+  height: 30px;
+
+  border-radius: 3px;
+}
+
+.blog-body-input {
+  width: 80%;
+  min-height: 250px;
+  height: auto;
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+.blog-submit-btn {
+  width: 80%;
+  height: 30px;
+  background-color: pink;
+  cursor: pointer;
+  transition: background .15s ease-in;
+}
+
+.blog-submit-btn:hover {
+  background-color: pink;
+  transition: background .15s ease-in;
+}
