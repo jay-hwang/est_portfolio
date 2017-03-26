@@ -1,16 +1,50 @@
 import React from 'react';
 
-const Tagging = props => {
-  const deleteTagging = () => props.deleteTagging(props.tagging.id);
+class Tagging extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className='tag btn'>
-      { props.tagging.tag.name }
-      <span className='delete-tagging' onClick={ deleteTagging }>
-        X
-      </span>
-    </div>
-  );
-};
+    this.state = {
+      isActive: props.isActive
+    };
+
+    this.toggleState = this.toggleState.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  toggleState() {
+    if (this.state.isActive) {
+      this.setState({ isActive: false });
+    } else {
+      this.setState({ isActive: true });
+    }
+  }
+
+  handleClick() {
+    if (this.state.isActive) {
+      this.props.deleteTagging(this.props.tagging.id);
+    } else {
+      const tagging = { tag_id: this.props.tag.id, blog_id: this.props.blog.id };
+      this.props.createTagging(tagging);
+    }
+    this.toggleState();
+  }
+
+  render() {
+    if (this.state.isActive) {
+      return (
+        <div className='tag btn active-tag' onClick={ this.handleClick }>
+          { this.props.tag.name }
+        </div>
+      );
+    } else {
+      return (
+        <div className='tag btn' onClick={ this.handleClick }>
+          { this.props.tag.name }
+        </div>
+      );
+    }
+  }
+}
 
 export default Tagging;

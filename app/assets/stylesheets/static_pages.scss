@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#app {
+#app, body, html {
   background-color: whitesmoke;
 }
 
@@ -14,6 +14,10 @@
 
 .btn:hover {
   transition: all .2s ease-in;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .header {
@@ -90,4 +94,16 @@
   min-height: 100%;
   background: rgba(0,0,0,0.8);
   z-index: 350;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.required {
+  color: red;
 }

@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import Taggings from './taggings';
-import { requestTaggings } from '../../actions/tagging_actions';
+import Tags from './tags';
+import { createTagging, deleteTagging } from '../../actions/tagging_actions';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
   currentUser: state.session.currentUser,
-  taggings: state.taggings.index
+  isBlogTags: true
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTaggings: blogId => dispatch(requestTaggings(blogId))
+  createTagging: tagging => dispatch(createTagging(tagging)),
+  deleteTagging: id => dispatch(deleteTagging(id))
 });
 
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(Taggings);
+)(Tags);

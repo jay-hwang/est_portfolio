@@ -25,9 +25,8 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
   const blogsSuccess      = blogs => dispatch(receiveBlogs(blogs));
   const updateBlogSuccess = blog => {
     dispatch(receiveBlog(blog));
-    action.router.push('/blogs/user');
   };
-  
+
   switch(action.type) {
     case CREATE_BLOG:
       createBlog(action.blog, blogSuccess, error);

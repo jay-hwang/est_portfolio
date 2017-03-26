@@ -1,15 +1,10 @@
 import { connect } from 'react-redux';
 import Tags from './tags';
-
 import {
+  createTag,
   requestTags,
   deleteTag
 } from '../../actions/tag_actions';
-
-import {
-  createTagging,
-  requestTaggings
-} from '../../actions/tagging_actions';
 
 const mapStateToProps = state => ({
   loggedIn: state.session.currentUser ? true : false,
@@ -18,10 +13,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  createTag: tag => dispatch(createTag(tag)),
   requestTags: () => dispatch(requestTags()),
-  deleteTag: id => dispatch(deleteTag()),
-  createTagging: tagging => dispatch(createTagging(tagging)),
-  requestTaggings: () => dispatch(requestTaggings())
+  deleteTag: id => dispatch(deleteTag(id))
 });
 
 export default connect(

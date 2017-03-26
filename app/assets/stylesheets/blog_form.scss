@@ -6,8 +6,8 @@
 
 .blog-form {
   background-color: lightgrey;
-  width: 500px;
-  height: 600px;
+  width: 80%;
+  height: auto;
 
   margin: 0 auto;
   margin-top: 60px;
@@ -19,30 +19,40 @@
 }
 
 .blog-input {
-  width: 80%;
-  height: 30px;
-
-  border-radius: 3px;
-}
-
-.blog-body-input {
-  width: 80%;
-  min-height: 250px;
-  height: auto;
+  width: 100%;
   outline: none;
-  border: none;
   resize: none;
 }
 
+.blog-body-input {
+  border: none;
+  display:inline-block;
+  min-height: 100px;
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
 .blog-submit-btn {
-  width: 80%;
-  height: 30px;
-  background-color: pink;
+  width: 200px;
+  height: 40px;
+
   cursor: pointer;
-  transition: background .15s ease-in;
+  transition: 'all' .2s ease-in;
+  background-color: #fff;
+
+  color: #2e3842;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  padding: 7px;
+  border: 1px solid #2e3842;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .blog-submit-btn:hover {
-  background-color: pink;
-  transition: background .15s ease-in;
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
 }

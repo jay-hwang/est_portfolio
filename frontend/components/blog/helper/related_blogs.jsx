@@ -14,26 +14,34 @@ class RelatedBlogs extends React.Component {
   }
 
   mapRelatedBlogs() {
-    let blogKeys = Object.keys(this.props.blogs);
-    if (blogKeys.length === 0) { return; }
+    let blogIds = Object.keys(this.props.blogs);
+    if (blogIds.length === 0) { return; }
 
-    // throw in a condition to remove related blog if the id === this.props.blog.id
-    // only render 3 related blogs at most
-    debugger;
-    return blogKeys.map((id, i) => (
-      <li key={i}>
-        <RelatedBlog blog={ this.props.blogs[id] } />
-      </li>
-    ));
+    let relatedBlogs = [], i = 0, len = blogIds.length;
+    while (relatedBlogs.length <= 3 && len > 1) {
+      if (parseInt(blogIds[i]) !== this.props.blog.id) {
+        relatedBlogs.push(
+          <li key={i}>
+            <RelatedBlog blog={ this.props.blogs[i] } />
+          </li>
+        );
+      }
+      i++;
+      len--;
+    }
+
+    return relatedBlogs.length > 0 ? relatedBlogs : (<div>No Related Blogs</div>);
   }
 
   render() {
     let relatedBlogs = this.mapRelatedBlogs();
 
     return (
-      <section className='related-blogs'>
-        <h3 className='header'>RELATED BLOGS</h3>
-        { relatedBlogs }
+      <section className='related-blogs-section'>
+        <h3 className='related-head'>RELATED BLOGS</h3>
+        <div className='related-blogs'>
+          { relatedBlogs }
+        </div>
       </section>
     );
   }

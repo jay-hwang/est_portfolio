@@ -1,6 +1,7 @@
 import React from 'react';
+import CommentFormContainer from '../comment/comment_form_container';
 import CommentsContainer from '../comment/comments_container';
-import TagsContainer from '../tag/tags_container';
+import BlogTagsContainer from '../tag/blog_tags_container';
 import TaggingsContainer from '../tagging/taggings_container';
 import BlogNav from './helper/blog_nav';
 import RelatedBlogsContainer from './helper/related_blogs_container';
@@ -52,7 +53,7 @@ class Blog extends React.Component {
 
       return (
         <div className='blog'>
-          <div className='blink-large'>
+          <div className='blog-content'>
             <div className='blink-img'>
 
             </div>
@@ -64,9 +65,16 @@ class Blog extends React.Component {
               </p>
             </div>
 
+            <BlogTagsContainer blog={ blog } />
+
             <RelatedBlogsContainer blog={ blog }
               requestBlogs={ this.props.requestBlogs } />
+
           </div>
+
+          <CommentFormContainer blog={ blog } />
+
+          <CommentsContainer blog={ blog } />
         </div>
       );
     }

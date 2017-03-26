@@ -2,18 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.comments {
+  margin-bottom: 60px;
+}
+
 .comment {
-  width: 400px;
+  width: 80%;
   min-height: 80px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  // align-items: center;
+  // justify-content: space-between;
 
-  border: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding: 20px 0;
   margin: 0 auto;
 }
+
+.comment-head {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 15px;
+}
+
+.comment-author {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 7px;
+}
+
+.comment-date {
+  font-size: 13px;
+}
+
+.comment-body {
+  margin-bottom: 20px;
+}
+
+.delete-comment {
+  width: 100px;
+  height: 30px;
+
+  color: #2e3842;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  border: 1px solid #2e3842;
+  background-color: #fff;
+}
+
+.delete-comment:hover {
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
+}
+
+// Comment Form CSS
 
 .comment-form-box {
   position: relative;
@@ -27,35 +75,43 @@
   height: 500px;
   width: 600px;
 
-  background-color: orange;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
   margin: 40px 0;
-
-  position: fixed;
-  top: 50px;
-  right: -750px;
-
-  z-index: 400;
 }
 
-.form-input {
+.comment-input {
   border: 1px solid lightgrey;
+  padding: 10px 7px;
+  margin-top: 5px;
   height: 40px;
   width: 400px;
+
+  font-weight: 400;
 }
 
 .submit-btn {
   width: 400px;
   height: 40px;
-  border-radius: 3px;
+  border: 1px solid #2e3842;
+  background-color: #fff;
 
+  color: #2e3842;
+  letter-spacing: 2px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
-.comment-input {
+.submit-btn:hover {
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
+}
+
+.comment-body-input {
   height: 200px;
+  resize: none;
 }

@@ -5,4 +5,5 @@ json.extract! @comment,
   :blog,
   :author_name,
   :author_email,
-  :author_id
+  :author_id,
+  :created_at

@@ -5,19 +5,18 @@ class Tag extends React.Component {
     super(props);
 
     this.state = {
-      isActive: false,
-      color: 'white'
+      isActive: false
     };
 
-    this.handleClick = this.handleClick.bind(this);
     this.toggleState = this.toggleState.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   toggleState() {
     if (this.state.isActive) {
-      this.setState({ isActive: false, color: 'white' });
+      this.setState({ isActive: false });
     } else {
-      this.setState({ isActive: true, color: 'green' });
+      this.setState({ isActive: true });
     }
   }
 
@@ -26,39 +25,25 @@ class Tag extends React.Component {
       this.props.updateTagFilter(this.props.tag, this.state.isActive);
       this.toggleState();
     } else {
-      debugger;
-      const tagging = { blog_id: this.props.blog.id, tag_id: this.props.tag.id };
-      this.props.createTagging(tagging);
+      console.log('will re-route to currentTag.blogs page here');
     }
   }
 
   render() {
-    return (
-      <div className='tag btn' onClick={ this.handleClick }
-        style={{ backgroundColor:this.state.color }}>
-        { this.props.tag.name }
-      </div>
-    );
+    if (this.state.isActive) {
+      return (
+        <div className='tag btn active-tag' onClick={ this.handleClick }>
+          { this.props.tag.name }
+        </div>
+      );
+    } else {
+      return (
+        <div className='tag btn' onClick={ this.handleClick }>
+          { this.props.tag.name }
+        </div>
+      );
+    }
   }
 }
-
-// const Tag = props => {
-//   const handleClick = () => {
-//     if (props.isFilter) {
-//       const tags = [props.tag.name];
-//       props.requestBlogs(tags);
-//     } else {
-//       debugger;
-//       const tagging = { blog_id: props.blog.id, tag_id: props.tag.id };
-//       props.createTagging(tagging);
-//     }
-//   };
-//
-//   return (
-//     <div className='tag btn' onClick={ handleClick }>
-//       { props.tag.name }
-//     </div>
-//   );
-// };
 
 export default Tag;

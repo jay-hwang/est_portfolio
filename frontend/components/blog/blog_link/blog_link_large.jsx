@@ -2,7 +2,7 @@ import React from 'react';
 
 const BlogLinkLarge = props => {
   return (
-    <div className='blink-large'>
+    <div className='blog-content'>
       <div className='blink-img'>
 
       </div>

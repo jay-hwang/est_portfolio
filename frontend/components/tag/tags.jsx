@@ -6,15 +6,27 @@ class Tags extends React.Component {
     super(props);
 
     this.mapTags = this.mapTags.bind(this);
-    this.hideTags = this.hideTags.bind(this);
+    this.mapBlogTags = this.mapBlogTags.bind(this);
     this.updateTagFilter = this.updateTagFilter.bind(this);
 
     this.tagFilters = {};
   }
 
   componentDidMount() {
-    this.props.requestTaggings();
-    this.props.requestTags();
+    if (!this.props.isBlogTags) {
+      // this.props.requestTaggings();
+      this.props.requestTags();
+    }
+  }
+
+  mapBlogTags() {
+    // Check value of this.props.blog.tags.map
+    return this.props.blog.tags.map((tag, i) => (
+      <li key={i} className='tag-li'>
+        <Tag tag={ tag }
+          isFilter={ this.props.isFilter } />
+      </li>
+    ));
   }
 
   mapTags() {
@@ -22,9 +34,9 @@ class Tags extends React.Component {
     return Object.keys(this.props.tags).map((id, i) => (
       <li key={i} className='tag-li'>
         <Tag tag={ this.props.tags[id] }
+          blog={ this.props.blog }
           isFilter={ this.props.isFilter }
-          updateTagFilter={ this.updateTagFilter }
-          createTagging={ this.props.createTagging } />
+          updateTagFilter={ this.updateTagFilter } />
       </li>
     ));
   }
@@ -38,12 +50,8 @@ class Tags extends React.Component {
     this.props.requestBlogs(Object.keys(this.tagFilters));
   }
 
-  hideTags() {
-    $('.tags-box').slideUp();
-  }
-
   render() {
-    let tags = this.mapTags();
+    let tags = this.props.isBlogTags ? this.mapBlogTags() : this.mapTags();
 
     return (
       <div className='tags-box'>

@@ -4,7 +4,6 @@ const DeleteCommentBtn = ({ props }) => {
   const handleDelete = () => props.deleteComment(props.comment.id);
 
   if (props.loggedIn) {
-    // Very basic admin auth
     if (props.currentUser.id === 1 || props.currentUser.id === 2) {
       return (
         <button className='delete-comment btn' onClick={ handleDelete }>
@@ -22,10 +21,14 @@ const DeleteCommentBtn = ({ props }) => {
 const Comment = props => {
   return (
     <div className='comment'>
-      { props.comment.body }
-      <br/>
-      Author: { props.comment.author_name }
-      <br/>
+      <div className='comment-head'>
+        <h4 className='comment-author'>{ props.comment.author_name }</h4>
+        <span className='comment-date'>{ props.comment.created_at }</span>
+      </div>
+
+      <p className='comment-body'>
+        { props.comment.body }
+      </p>
       <DeleteCommentBtn props={ props } />
     </div>
   );

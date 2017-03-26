@@ -4,7 +4,7 @@
 
 .blogs-box {
   width: 100%;
-  height: 100vh;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -21,14 +21,14 @@
   flex-wrap: wrap;
 }
 
-
 // Blog show CSS
 
 .blog {
+  width: 80%;
+  height: auto;
   margin: 0 auto;
   margin-top: 60px;
   padding: 60px;
-  width: 80%;
 }
 
 .blog-body {

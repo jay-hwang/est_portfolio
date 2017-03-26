@@ -8,6 +8,7 @@ class Taggings extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.requestTaggings(this.props.blog.id);
   }
 
@@ -26,8 +27,8 @@ class Taggings extends React.Component {
     let taggings = this.mapTaggings();
 
     return (
-      <div>
-        <h3 className='header'>Taggings</h3>
+      <div className='tags-box'>
+        <h3 className='tagging-header'>TAGS</h3>
         <div className='taggings'>
           { taggings }
         </div>

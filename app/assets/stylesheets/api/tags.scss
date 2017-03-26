@@ -19,8 +19,7 @@
 
 .tag {
   height: 25px;
-  border: 1px solid #333;
-  border-radius: 3px;
+  border: 1px solid #2e3842;
   margin: 5px 10px 5px 0;
   padding: 7px;
 
@@ -31,6 +30,25 @@
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
+
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.tag:hover {
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
+}
+
+.active-tag {
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
+}
+
+.active-tag:hover {
+  background-color: grey;
 }
 
 .tag-header {
@@ -46,19 +64,27 @@
   // background-color: blue;
 }
 
-.tag:hover {
-  color: #f94d4d;
-}
-
 .taggings {
-  width: 850px;
+  // width: 850px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 .delete-tagging {
-  position: absolute;
-  right: 10px;
+  margin-left: 7px;
+}
+
+.taggings-box {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.tagging-header {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
 }
