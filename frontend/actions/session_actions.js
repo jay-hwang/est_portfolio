@@ -15,6 +15,12 @@ export const signup = user => ({
   user
 });
 
+export const REQUEST_USER = 'REQUEST_USER';
+export const requestUser = id => ({
+  type: REQUEST_USER,
+  id
+});
+
 export const UPDATE_USER = 'UPDATE_USER';
 export const updateUser = user => ({
   type: UPDATE_USER,

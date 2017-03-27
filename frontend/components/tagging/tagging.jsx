@@ -22,10 +22,16 @@ class Tagging extends React.Component {
 
   handleClick() {
     if (this.state.isActive) {
-      this.props.deleteTagging(this.props.tagging.id);
+      this.props.queueTaggingAction({
+        type: 'DELETE',
+        id: this.props.tagging.id
+      });
     } else {
-      const tagging = { tag_id: this.props.tag.id, blog_id: this.props.blog.id };
-      this.props.createTagging(tagging);
+      const tagging = { tag_id: this.props.tag.id };
+      this.props.queueTaggingAction({
+        type: 'CREATE',
+        tagging: tagging
+      });
     }
     this.toggleState();
   }

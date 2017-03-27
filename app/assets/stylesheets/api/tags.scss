@@ -88,3 +88,25 @@
   letter-spacing: 1px;
   text-align: center;
 }
+
+#new-taggings-form {
+  width: 80%;
+  padding-top: 60px;
+}
+
+.new-tags-btn {
+  padding: 10px;
+  border: 1px solid #2e3842;
+
+  margin: 30px auto;
+  margin-bottom: 0;
+
+  font-weight: 700;
+  letter-spacing: 1px;
+  background-color: #fff;
+}
+
+.new-tags-btn:hover {
+  color: #fff;
+  background-color: #2e3842;;
+}

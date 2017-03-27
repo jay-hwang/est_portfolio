@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import Textarea from 'react-textarea-autosize';
 import TaggingsFormContainer from '../../tagging/taggings_form_container';
+import UploadButton from '../../cloudinary/upload_button';
 
 class BlogForm extends React.Component {
   constructor(props) {
@@ -15,20 +16,47 @@ class BlogForm extends React.Component {
       id: this.blogId ? this.blogId : null,
       author_id: this.props.currentUser.id,
       title: '',
-      body: ''
+      body: '',
+      image_url: ''
     };
+    this.taggingActions = [];
 
+    this.dispatchTaggingActions = this.dispatchTaggingActions.bind(this);
+    this.queueTaggingAction = this.queueTaggingAction.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.addImage = this.addImage.bind(this);
     this.initBlog = this.initBlog.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.isNew) { this.props.requestBlog(this.blogId); }
+    if (!this.props.isNew) {
+      this.props.requestBlog(this.blogId);
+    }
   }
 
   componentDidUpdate() {
+    if (this.props.messages.success) {
+      this.dispatchTaggingActions();
+      this.props.router.push('/blogs/user');
+    }
     if (!this.props.isNew) { this.initBlog(); }
+  }
+
+  queueTaggingAction(taggingAction) {
+    this.taggingActions.push(taggingAction);
+  }
+
+  dispatchTaggingActions() {
+    this.taggingActions.forEach(action => {
+      if (action.type === 'CREATE') {
+        action.tagging['blog_id'] = this.props.recentReceived.id;
+        this.props.createTagging(action.tagging);
+      } else {
+        this.props.deleteTagging(action.id);
+      }
+    });
+    this.props.blogChangeReceived();
   }
 
   initBlog() {
@@ -51,14 +79,14 @@ class BlogForm extends React.Component {
     } else {
       this.props.updateBlog(blog, this.props.router);
     }
-
-    this.props.router.push(`/blogs/${blog.id}`);
   }
 
   handleChange(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
+    return e => this.setState({ [field]: e.target.value });
+  }
+
+  addImage(url) {
+    this.setState({ image_url: url });
   }
 
   render() {
@@ -69,42 +97,49 @@ class BlogForm extends React.Component {
       ));
     }
 
-    if (this.blog) {
-      return (
-        <div className='blog'>
-          <form className='blog-content' onSubmit={ this.handleSubmit }>
-            { this.errorsLi }
-
-            <div className='blink-img'>
-
-            </div>
-
-            <div className='blink-intro'>
-              <Textarea onChange={ this.handleChange('title') }
-                value={ this.state.title }
-                placeholder='Title'
-                className='blink-title blog-input'>
-                { this.state.title }
-              </Textarea>
-
-              <Textarea className='blink-body blog-body-input blog-input'
-                value={ this.state.body }
-                placeholder='Write about your blog here'
-                onChange={ this.handleChange('body') }>
-              </Textarea>
-            </div>
-
-            <TaggingsFormContainer blog={ this.blog } />
-
-            <button className='blog-submit-btn btn'>{ this.formType } BLOG</button>
-          </form>
-        </div>
+    let imageSection = [];
+    if (this.state.image_url.length === 0) {
+      imageSection.push(
+        <UploadButton addImage={ this.addImage } />
       );
     } else {
-      return (
-        <div></div>
+      imageSection.push(
+        <img className='blog-img' src={ this.state.image_url } />
       );
     }
+
+    return (
+      <div className='blog'>
+        <form className='blog-content blog-form' onSubmit={ this.handleSubmit }>
+          { this.errorsLi }
+
+          <div className='blink-img'>
+            { imageSection }
+          </div>
+
+          <div className='blink-intro'>
+            <Textarea onChange={ this.handleChange('title') }
+              value={ this.state.title }
+              placeholder='Title'
+              className='blink-title blog-input'>
+            </Textarea>
+
+            <Textarea className='blink-body blog-body-input blog-input'
+              value={ this.state.body }
+              placeholder='Write about your blog here'
+              onChange={ this.handleChange('body') }>
+            </Textarea>
+          </div>
+
+          <TaggingsFormContainer blogId={ this.blogId }
+            isNew={ this.props.isNew }
+            queueTaggingAction={ this.queueTaggingAction } />
+
+          <button className='blog-submit-btn btn'>{ this.formType } BLOG</button>
+        </form>
+
+      </div>
+    );
   }
 }
 

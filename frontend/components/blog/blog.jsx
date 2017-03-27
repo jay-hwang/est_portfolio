@@ -55,7 +55,7 @@ class Blog extends React.Component {
         <div className='blog'>
           <div className='blog-content'>
             <div className='blink-img'>
-
+              <img className='blog-img' src={ blog.image_url } />
             </div>
 
             <div className='blink-intro'>

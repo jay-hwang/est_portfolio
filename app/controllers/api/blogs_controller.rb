@@ -42,7 +42,8 @@ class Api::BlogsController < ApplicationController
         :title,
         :body,
         :created_at,
-        :updated_at
+        :updated_at,
+        :image_url
       )
     end
 

@@ -4,7 +4,7 @@ const BlogLinkLarge = props => {
   return (
     <div className='blog-content'>
       <div className='blink-img'>
-
+        <img className='blog-img' src={ props.blog.image_url } />
       </div>
 
       <div className='blink-intro'>

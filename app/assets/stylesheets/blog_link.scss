@@ -21,6 +21,19 @@
   cursor: pointer;
 }
 
+.slink-img-div {
+  position: relative;
+  width: 100%;
+}
+
+.slink-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .blog-title {
   font-size: 25px;
   font-weight: 700;
@@ -73,13 +86,15 @@
   box-shadow: 0 0 10px #aaaaaa;
 
   background-color: #fff;
+
+  position: relative;
 }
 
 .blink-img {
   max-height: 500px;
   height: 500px;
   width: 100%;
-  background-color: grey;
+  background-color: lightgrey;
 }
 
 .blink-intro {

@@ -11,46 +11,47 @@ class TaggingsForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestTaggings(this.props.blog.id);
     this.props.requestTags();
-  }
-
-  componentDidUpdate() {
-    // console.log('taggings form updated');
+    if (!this.props.isNew) { this.props.requestTaggings(this.props.blogId); }
   }
 
   mapBlogTagIds() {
-    this.blogTagIds = {};
-    this.props.blog.tags.forEach(tag => {
-      this.blogTagIds[tag.id] = tag.id;
+    let blogTagIds = {};
+    if (this.props.isNew) { return {}; }
+    Object.keys(this.props.taggings).forEach(taggingId => {
+      let tag = this.props.taggings[taggingId].tag;
+      blogTagIds[tag.id] = tag.id;
     });
+    return blogTagIds;
   }
 
   mapTaggingsByTagId() {
-    this.taggingsTags = {};
-    Object.keys(this.props.taggings).forEach(taggingId => {
-      let tagging = this.props.taggings[taggingId];
-      this.taggingsTags[tagging.tag.id] = tagging;
+    let taggingsByTagId = {}, propsTaggings = this.props.taggings;
+    Object.keys(propsTaggings).forEach(taggingId => {
+      let tagging = propsTaggings[taggingId];
+      taggingsByTagId[tagging.tag.id] = tagging;
     });
+    return taggingsByTagId;
   }
 
   mapTags() {
-    if (Object.keys(this.props.taggings).length > 0 &&
-        Object.keys(this.props.tags).length > 0) {
-      this.mapTaggingsByTagId();
-      let blogTagIds = this.blogTagIds;
+    if (Object.keys(this.props.tags).length > 0 &&
+      (this.props.isNew || Object.keys(this.props.taggings).length > 0))  {
 
-      return Object.keys(this.props.tags).map((id, i) => {
-        let isActive = blogTagIds[id] ? true : false;
+      let blogTagIds = this.mapBlogTagIds(),
+          taggingsByTagId = this.mapTaggingsByTagId(),
+          queueTaggingAction = this.props.queueTaggingAction;
+
+      return Object.keys(this.props.tags).map((tagId, i) => {
+        let isActive = blogTagIds[tagId] ? true : false;
+
         return (
           <li key={i}>
-            <Tagging tag={ this.props.tags[id] }
-              tagging={ this.taggingsTags[id] }
-              blog={ this.props.blog }
+            <Tagging tag={ this.props.tags[tagId] }
+              tagging={ taggingsByTagId[tagId] }
+              blogId={ this.props.blogId }
               isActive={ isActive }
-              requestBlog={ this.props.requestBlog  }
-              createTagging={ this.props.createTagging }
-              deleteTagging={ this.props.deleteTagging } />
+              queueTaggingAction={ queueTaggingAction } />
           </li>
         );
       });
@@ -58,7 +59,6 @@ class TaggingsForm extends React.Component {
   }
 
   render() {
-    this.mapBlogTagIds();
     let taggings = this.mapTags();
 
     return (

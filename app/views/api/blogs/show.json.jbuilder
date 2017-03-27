@@ -8,4 +8,5 @@ json.extract! @blog,
   :updated_at,
   :comments,
   :tags,
-  :taggings
+  :taggings,
+  :image_url

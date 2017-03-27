@@ -21,7 +21,8 @@ class Blog < ApplicationRecord
       :body,
       :author_id,
       :created_at,
-      :updated_at
+      :updated_at,
+      :image_url
     ).joins(:tags).where(tags: { name: tags })
   end
 end

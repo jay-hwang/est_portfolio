@@ -21,8 +21,8 @@ class BlogLink extends React.Component {
     e.stopPropagation();
     if (confirm('Are you sure? Deleting a blog is permanent')) {
       const blogId = this.props.blog.id;
-      this.props.removeBlog(blogId);
-      this.props.update();
+      this.props.deleteBlog(blogId);
+      this.props.requestUser(this.props.currentUser.id);
     }
   }
 

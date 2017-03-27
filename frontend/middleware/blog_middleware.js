@@ -6,6 +6,7 @@ import {
   DELETE_BLOG,
   receiveBlog,
   receiveBlogs,
+  receiveBlogChange,
   removeBlog,
   receiveBlogErrors
 } from '../actions/blog_actions';
@@ -23,13 +24,12 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
   const error             = e => dispatch(receiveBlogErrors(e.responseJSON));
   const blogSuccess       = blog => dispatch(receiveBlog(blog));
   const blogsSuccess      = blogs => dispatch(receiveBlogs(blogs));
-  const updateBlogSuccess = blog => {
-    dispatch(receiveBlog(blog));
-  };
+  const blogChangeSuccess = blog => dispatch(receiveBlogChange(blog));
+
 
   switch(action.type) {
     case CREATE_BLOG:
-      createBlog(action.blog, blogSuccess, error);
+      createBlog(action.blog, blogChangeSuccess, error);
       return next(action);
 
     case REQUEST_BLOG:
@@ -41,7 +41,7 @@ const BlogMiddleware = ({ getState, dispatch }) => next => action => {
       return next(action);
 
     case UPDATE_BLOG:
-      updateBlog(action.blog, updateBlogSuccess, error);
+      updateBlog(action.blog, blogChangeSuccess, error);
       return next(action);
 
     case DELETE_BLOG:

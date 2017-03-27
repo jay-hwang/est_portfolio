@@ -2,6 +2,7 @@ import {
   LOGIN,
   LOGOUT,
   SIGNUP,
+  REQUEST_USER,
   UPDATE_USER,
   DELETE_USER,
   deleteUserAction,
@@ -13,6 +14,7 @@ import {
   login,
   logout,
   signup,
+  fetchUser,
   updateUser,
   deleteUser
 } from '../util/session_api_util';
@@ -33,6 +35,10 @@ const SessionMiddleware = ({ getState, dispatch }) => next => action => {
 
     case SIGNUP:
       signup(action.user, userSuccess, error);
+      return next(action);
+
+    case REQUEST_USER:
+      fetchUser(action.id, userSuccess, error);
       return next(action);
 
     case UPDATE_USER:

@@ -10,6 +10,7 @@
       :updated_at,
       :comments,
       :tags,
-      :taggings
+      :taggings,
+      :image_url
   end
 end

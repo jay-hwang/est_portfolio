@@ -11,7 +11,8 @@ import UserBlogsContainer from './blog/user_blogs_container';
 import BlogContainer from './blog/blog_container';
 import {
   _redirectUnlessLoggedIn,
-  _getBlogs
+  _getBlogs,
+  _getCurrentUser
 } from '../util/helper_methods.jsx';
 
 const Root = ({ store }) => {
@@ -45,6 +46,7 @@ const Root = ({ store }) => {
           </Route>
 
           <Route path='/blogs/user'
+            onEnter={ _getCurrentUser(store) }
             component={ UserBlogsContainer }>
           </Route>
 

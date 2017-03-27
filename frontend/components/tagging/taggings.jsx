@@ -8,7 +8,7 @@ class Taggings extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
+    //debugger;
     this.props.requestTaggings(this.props.blog.id);
   }
 
