@@ -22,6 +22,8 @@ export const _mapErrorsToHTML = errors => (
 );
 
 export const _getCurrentUser = store => {
-  let id = store.getState().session.currentUser.id;
-  return () => store.dispatch(requestUser(id));
+  return () => { 
+    let id = store.getState().session.currentUser.id;
+    store.dispatch(requestUser(id));
+  };
 };
