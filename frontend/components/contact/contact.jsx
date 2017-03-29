@@ -9,7 +9,7 @@ class Contact extends React.Component {
   render() {
     return (
       <section className='contact'>
-        <span className='second-title'>CONTACT</span>
+        <span className='second-title' id='contact-title'>CONTACT</span>
         <form className='contact-form'>
           <input type='text'
             className='contact-field'

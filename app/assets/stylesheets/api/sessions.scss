@@ -39,7 +39,7 @@
   -moz-box-sizing: border-box;
 
   background: rgba(0,0,0,0);
-  transition: background .2s ease-in;
+  // transition: 'all' .2s ease-in;
   cursor: pointer;
 
   display: flex;
@@ -47,8 +47,9 @@
 }
 
 .session-btn:hover {
-  transition: background .2s ease-in;
-  background-color: lightgrey;
+  transition: 'all' .2s ease-in;
+  color: #fff;
+  background-color: #2e3842;
 }
 
 .errors {

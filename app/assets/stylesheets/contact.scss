@@ -4,19 +4,7 @@
 
   padding: 20px 0 30px 0;
 
-  // background: rgba(0,0,0,0);
-
-  // navy
-  // background-color: #2b343d;
-
-  // light turquoise
-  background-color: #83d3c9;
-
-  // violet
-  // background-color: #505393;
-
-  // deep turquoise
-  // background-color: #21b2a6;
+  background-color: whitesmoke;
 
   display: flex;
   flex-direction: column;
@@ -65,18 +53,28 @@
   height: 50px;
 
   margin: 5px 0;
-  border: none;
-  border-radius: 3px;
+  border: 1px solid #2e3842;
+  // border-radius: 3px;
   padding: 15px 10px;
 
-  // background-color: #83d3c9;
   transition: filter .2s ease-in;
-  background-color: #e7746f;
+  background-color: #fff;
   cursor: pointer;
 
-  color: #fff;
+  color: #2e3842;
   text-align: center;
   letter-spacing: 3px;
   font-size: 17px;
   font-weight: 700;
+}
+
+.contact-btn:hover {
+  transition: 'all' .2s ease-in;
+  background-color: #2e3842;
+  color: #fff;
+}
+
+#contact-title {
+  color: #2e3842;
+  border-bottom: 2px solid #2e3842;
 }

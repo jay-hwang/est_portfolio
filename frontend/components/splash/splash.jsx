@@ -19,11 +19,11 @@ class Splash extends React.Component {
           <div className='splash'>
             <div className='content'>
               <div className='title'>
-                TITLE
+                TACKLING TRAFFICKING
               </div>
 
               <div className='info'>
-                THIS WILL BE A BOX THAT HOLDS INFORMATION ABOUT THE BLOG SITE
+                Some thoughts on Problematising the solutions to Human Trafficking
               </div>
             </div>
           </div>

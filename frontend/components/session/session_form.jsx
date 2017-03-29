@@ -70,9 +70,9 @@ class SessionForm extends React.Component {
             </ul>
 
             <div className='divider'></div>
-            <button className='session-btn'>LOG IN</button>
+            <button className='session-btn btn'>LOG IN</button>
             <div className='divider'></div>
-            <div className='session-btn' onClick={ this.hideSessionForm }>CANCEL</div>
+            <div className='session-btn btn' onClick={ this.hideSessionForm }>CANCEL</div>
           </form>
         </section>
         <li className='menu-li loginli' onClick={ this.showSessionForm }>LOG IN</li>

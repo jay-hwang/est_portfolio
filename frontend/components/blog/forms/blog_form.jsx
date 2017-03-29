@@ -66,7 +66,8 @@ class BlogForm extends React.Component {
 
     this.setState({
       title: this.blog.title,
-      body: this.blog.body
+      body: this.blog.body,
+      image_url: this.blog.image_url
     });
   }
 
@@ -87,6 +88,14 @@ class BlogForm extends React.Component {
 
   addImage(url) {
     this.setState({ image_url: url });
+  }
+
+  showUploadButton() {
+    $('.upload-img-btn').fadeIn();
+  }
+
+  hideUploadButton() {
+    $('.upload-img-btn').fadeOut();
   }
 
   render() {
@@ -113,7 +122,9 @@ class BlogForm extends React.Component {
         <form className='blog-content blog-form' onSubmit={ this.handleSubmit }>
           { this.errorsLi }
 
-          <div className='blink-img'>
+          <div className='blink-img'
+            onMouseLeave={ this.hideUploadButton }
+            onMouseEnter={ this.showUploadButton }>
             { imageSection }
           </div>
 
