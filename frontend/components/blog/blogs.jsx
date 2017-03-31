@@ -49,7 +49,11 @@ class Blogs extends React.Component {
     let title = this.props.isUserBlogs ? 'MY' : 'RECENT',
         blogLis = this.mapBlogLis();
 
-    if (this.props.isSplash) {
+    if (blogLis.length === 0) {
+      return (
+        <div className='empty-blogs'>NO BLOGS HAVE BEEN WRITTEN YET</div>
+      );
+    } else if (this.props.isSplash) {
       return (
         <section className='blogs-box' id='splash-blogs'>
           <h3 className='second-title' id='splash-title'>{ title } BLOGS</h3>
