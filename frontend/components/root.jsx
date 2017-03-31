@@ -1,7 +1,7 @@
 import React from 'react';
+import App from './app';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import App from './app';
 import SplashContainer from './splash/splash_container';
 import ProfileContainer from './profile/profile_container';
 import NewBlogContainer from './blog/forms/new_blog_container';

@@ -22,6 +22,18 @@ class Blogs extends React.Component {
             isUserBlogs={ this.props.isUserBlogs } />
         </li>
       ));
+    } else if (this.props.isSplash) {
+      let blogKeys = Object.keys(this.props.blogs);
+      if (blogKeys.length === 0) { return []; }
+      for (let i = 0; i < 6; i++) {
+        let blog = this.props.blogs[blogKeys[i]];
+        blogLis.push(
+          <li key={i}>
+            <BlogLinkContainer blog={ blog }
+              isSplash={ this.props.isSplash } />
+          </li>
+        );
+      }
     } else {
       blogLis = Object.keys(this.props.blogs).map((id, i) => (
         <li key={i}>
@@ -30,14 +42,21 @@ class Blogs extends React.Component {
         </li>
       ));
     }
-    return blogLis;
+    return blogLis.reverse();
   }
 
   render() {
     let title = this.props.isUserBlogs ? 'MY' : 'RECENT',
         blogLis = this.mapBlogLis();
 
-    if (this.props.isSplash || this.props.isUserBlogs) {
+    if (this.props.isSplash) {
+      return (
+        <section className='blogs-box' id='splash-blogs'>
+          <h3 className='second-title' id='splash-title'>{ title } BLOGS</h3>
+          <ul className='blogs'>{ blogLis }</ul>
+        </section>
+      );
+    } else if (this.props.isUserBlogs) {
       return (
         <section className='blogs-box'>
           <h3 className='second-title'>{ title } BLOGS</h3>

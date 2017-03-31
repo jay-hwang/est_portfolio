@@ -25,7 +25,7 @@ class UserInfo extends React.Component {
   }
 
   handleDeleteUser() {
-    if (confirm('Are you sure? Deleting your account is permanent.')) {  
+    if (confirm('Are you sure? Deleting your account is permanent.')) {
       const userId = this.props.currentUser.id;
       this.props.logout();
       this.props.router.push('/');
@@ -70,17 +70,17 @@ class UserInfo extends React.Component {
         <div className='user-buttons'>
           <div className='user-button' onClick= { this.showPasswordForm }>
             <img className='ub-icon' id='password-icon'
-              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488825874/lock_eyvm3p.png' />
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1491000218/lock_akwkej.png' />
           </div>
 
           <div className='user-button' onClick={ this.showEditForm }>
             <img className='ub-icon' id='edit-icon'
-              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/edit_tb7zyp.png' />
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1491000219/edit_yui22e.png' />
           </div>
 
           <div className='user-button' onClick={ this.handleDeleteUser }>
             <img className='ub-icon' id='delete-icon'
-              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1488827447/delete_garaiy.png' />
+              src='https://res.cloudinary.com/ddgtwtbre/image/upload/v1491000219/delete_tvs1an.png' />
           </div>
         </div>
       </div>

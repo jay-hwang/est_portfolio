@@ -18,19 +18,18 @@ class RelatedBlogs extends React.Component {
     if (blogIds.length === 0) { return; }
 
     let relatedBlogs = [], i = 0, len = blogIds.length;
-    while (relatedBlogs.length <= 3 && len > 1) {
+    while (relatedBlogs.length < 3 && len >= 1) {
       if (parseInt(blogIds[i]) !== this.props.blog.id) {
         relatedBlogs.push(
           <li key={i}>
-            <RelatedBlog blog={ this.props.blogs[i] } />
+            <RelatedBlog blog={ this.props.blogs[blogIds[i]] } />
           </li>
         );
       }
       i++;
       len--;
     }
-
-    return relatedBlogs.length > 0 ? relatedBlogs : (<div>No Related Blogs</div>);
+    return relatedBlogs.length > 0 ? relatedBlogs : "No Related Blogs";
   }
 
   render() {

@@ -37,19 +37,10 @@ class CommentForm extends React.Component {
     this.setState({ defaultState });
   }
 
-  hideCommentForm() {
-    $('.dark-veil').fadeOut();
-    $('.comment-form').animate({ right: '-=1000' }, 200);
-    setTimeout(() => {
-      $('.comment-form').addClass('display-none');
-    }, 500);
-  }
-
   render() {
     return (
       <div className='blog-content'>
         <form className='comment-form' onSubmit={ this.handleSubmit }>
-          <div className='exit' onClick={ this.hideCommentForm }>x</div>
           <label className='label'>
             <h4>COMMENT</h4>
             <textarea className='comment-input comment-body-input'

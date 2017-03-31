@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class Tag extends React.Component {
   constructor(props) {
@@ -25,7 +26,8 @@ class Tag extends React.Component {
       this.props.updateTagFilter(this.props.tag, this.state.isActive);
       this.toggleState();
     } else {
-      console.log('will re-route to currentTag.blogs page here');
+      // console.log('will re-route to currentTag.blogs page here');
+      // this.props.router.push('/');
     }
   }
 
@@ -46,4 +48,4 @@ class Tag extends React.Component {
   }
 }
 
-export default Tag;
+export default withRouter(Tag);

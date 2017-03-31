@@ -1,11 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const RelatedBlog = ({ blog }) => {
+const RelatedBlog = ({ blog, router }) => {
+  const handleClick = () => router.push(`/blogs/${blog.id}`);
+
   if (blog) {
     return (
-      <div className='related-blog'>
+      <div className='related-blog' onClick={ handleClick }>
         <div className='related-blog-img'>
-
+          <img className='related-blog-img-content' src={ blog.image_url } />
         </div>
         <p className='related-blog-text'>
           { blog.title }
@@ -19,4 +22,4 @@ const RelatedBlog = ({ blog }) => {
   }
 };
 
-export default RelatedBlog;
+export default withRouter(RelatedBlog);

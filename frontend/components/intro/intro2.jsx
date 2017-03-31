@@ -11,7 +11,7 @@ const Intro2 = () => {
       </div>
       <img
         className='intro-img'
-        src="" />
+        src="https://res.cloudinary.com/ddgtwtbre/image/upload/v1490822592/Screen_Shot_2017-03-29_at_2.15.35_PM_osvczv.png" />
     </section>
   );
 };

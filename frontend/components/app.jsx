@@ -1,5 +1,4 @@
 import React from 'react';
-import Splash from './splash/splash';
 import Navbar from './navbar/navbar';
 import Footer from './footer/footer';
 import SubscriptionFormContainer from './subscription/subscription_form_container';

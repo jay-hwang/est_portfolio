@@ -56,8 +56,6 @@ class NavbarMenu extends React.Component {
           <ul className='menu-ul'>
             <li className='menu-li' onClick={ this.homeClick }>HOME</li>
             <div className='divider'></div>
-            <li className='menu-li'>ABOUT</li>
-            <div className='divider'></div>
             <li className='menu-li' onClick={ this.blogsClick }>BLOGS</li>
             <div className='divider'></div>
             { this.sessionMenu() }
@@ -67,5 +65,7 @@ class NavbarMenu extends React.Component {
     );
   }
 }
+// <div className='divider'></div>
+// <li className='menu-li'>ABOUT</li>
 
 export default withRouter(NavbarMenu);

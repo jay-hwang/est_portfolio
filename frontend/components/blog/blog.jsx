@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import CommentFormContainer from '../comment/comment_form_container';
 import CommentsContainer from '../comment/comments_container';
 import BlogTagsContainer from '../tag/blog_tags_container';
@@ -10,7 +11,6 @@ class Blog extends React.Component {
   constructor(props) {
     super(props);
 
-    this.blogId = this.props.routeParams.blog_id;
     this.mapBlog = this.mapBlog.bind(this);
     this.showTags = this.showTags.bind(this);
 
@@ -20,12 +20,12 @@ class Blog extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestBlog(this.blogId);
+    this.props.requestBlog(this.props.routeParams.blog_id);
   }
 
   mapBlog() {
-    if (!this.props.blogs[this.blogId]) { return null; }
-    return this.props.blogs[this.blogId];
+    if (!this.props.blogs[this.props.routeParams.blog_id]) { return null; }
+    return this.props.blogs[this.props.routeParams.blog_id];
   }
 
   showTags() {
@@ -43,7 +43,6 @@ class Blog extends React.Component {
 
   render() {
     let blog = this.mapBlog();
-
     if (!blog) {
       return (
         <div></div>
@@ -52,33 +51,36 @@ class Blog extends React.Component {
       // let next = this.nextBlog(blog), previous = this.previousBlog(blog);
 
       return (
-        <div className='blog'>
-          <div className='blog-content'>
-            <div className='blink-img'>
-              <img className='blog-img' src={ blog.image_url } />
+        <div className='blog-bg'>
+          <div className='blog'>
+            <div className='blog-content'>
+              <div className='blink-img'>
+                <img className='blog-img' src={ blog.image_url } />
+              </div>
+
+              <div className='blink-intro'>
+                <span className='blink-title'>{ blog.title }</span>
+                <p className='blink-body'>
+                  { blog.body }
+                </p>
+              </div>
+
+              <BlogTagsContainer blog={ blog } />
+
+              <RelatedBlogsContainer blog={ blog }
+                requestBlog={ this.props.requestBlog }
+                requestBlogs={ this.props.requestBlogs } />
+
             </div>
 
-            <div className='blink-intro'>
-              <span className='blink-title'>{ blog.title }</span>
-              <p className='blink-body'>
-                { blog.body }
-              </p>
-            </div>
+            <CommentFormContainer blog={ blog } />
 
-            <BlogTagsContainer blog={ blog } />
-
-            <RelatedBlogsContainer blog={ blog }
-              requestBlogs={ this.props.requestBlogs } />
-
+            <CommentsContainer blog={ blog } />
           </div>
-
-          <CommentFormContainer blog={ blog } />
-
-          <CommentsContainer blog={ blog } />
         </div>
       );
     }
   }
 }
 
-export default Blog;
+export default withRouter(Blog);

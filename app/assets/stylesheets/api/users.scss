@@ -3,16 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-info-box {
-  background-color: #83d3c9;
+  background-color: #fff;
 
   min-width: 700px;
   width: 70%;
   height: 500px;
 
-  color: #fff;
+  color: #2e3842;
   letter-spacing: 2px;
 
   flex-direction: column;
+
+  box-shadow: 0 0 10px #aaaaaa;
 }
 
 .user-info {
@@ -81,7 +83,7 @@
 .user-button {
   width: 70px;
   height: 70px;
-  border: 2.5px solid #fff;
+  border: 1px solid #c4c4c4;
   border-radius: 4px;
   cursor: pointer;
 
@@ -98,12 +100,13 @@
 }
 
 .user-button:hover {
-  background: rgba(255, 255, 255, 0.35);
+  // background: rgba(255, 255, 255, 0.35);
+  background-color: #2e3842;
   transition: background .15s ease-in;
 }
 
 .user-button:hover > .ub-icon {
-  filter: brightness(80%);
+  filter: brightness(120%);
   transition: filter .15s ease-in;
 }
 
@@ -118,6 +121,9 @@
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   transition: filter .15s ease-in;
+
+  filter: brightness(80%);
+
 }
 
 #delete-icon {
@@ -139,7 +145,7 @@
   justify-content: space-between;
   align-items: center;
 
-  color: #fff;
+  color: #2e3842;
   letter-spacing: 2px;
   font-size: 15px;
 }
@@ -161,16 +167,18 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  border-radius: 3px;
+  // border-radius: 3px;
   letter-spacing: 1px;
+
+  border: 1px solid #2e3842;
 }
 
 .eu-btn {
   width: 48%;
   height: 30px;
   margin-top: 10px;
-  border-radius: 3px;
-  color: #fff;
+  // border-radius: 3px;
+  color: #2e3842;
   letter-spacing: 2px;
   cursor: pointer;
 
@@ -180,23 +188,27 @@
 }
 
 .update-btn {
-  background-color: #e7746f;
-  border: 2px solid #e7746f;
-  transition: filter .15s ease-in;
+  border: 1px solid #e7746f;
+  // border: 1px solid #2e3842;
+  transition: all .15s ease-in;
 }
 
 .update-btn:hover {
-  filter: brightness(110%);
-  transition: filter .15s ease-in;
+  color: #fff;
+  background-color: #e7746f;
+  // background-color: #2e3842;
+  transition: all .15s ease-in;
 }
 
 .cancel-btn {
   background: rgba(0,0,0,0);
-  border: 2px solid #fff;
-  transition: background .15s ease-in;
+  border: 1px solid #2e3842;
+  transition: all .15s ease-in;
 }
 
 .cancel-btn:hover {
-  background: rgba(255,255,255,0.35);
-  transition: background .15s ease-in;
+  color: #fff;
+  background-color: #2e3842;
+  // background-color: lightgrey;
+  transition: all .15s ease-in;
 }
