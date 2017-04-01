@@ -84,10 +84,3 @@ class Blogs extends React.Component {
 }
 
 export default Blogs;
-
-// console.log(`this.props.blogs:`);
-// console.dir(this.props.blogs);
-// console.log(`blogKeys:`);
-// console.dir(blogKeys);
-// console.log(`blog:`);
-//   console.dir(blog);

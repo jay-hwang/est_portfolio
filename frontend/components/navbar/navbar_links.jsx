@@ -3,6 +3,7 @@ import React from 'react';
 const NavbarLinks = ({ openSubscribe }) => {
   const showMenu = () => {
     $(".menu-background").fadeIn(200);
+    $(".menu-mobile").fadeIn(200);
     $(".menu").animate({ right: "+=350" }, 200);
   };
 
