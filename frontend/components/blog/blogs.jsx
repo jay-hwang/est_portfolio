@@ -25,20 +25,17 @@ class Blogs extends React.Component {
     } else if (this.props.isSplash) {
       let blogKeys = Object.keys(this.props.blogs);
       if (blogKeys.length === 0) { return []; }
-      console.log(`this.props.blogs:`);
-      console.dir(this.props.blogs);
-      console.log(`blogKeys:`);
-      console.dir(blogKeys);
-      for (let i = 0; i < 6; i++) {
+      let i = 0, len = blogKeys.length;
+      while (blogLis.length < 6 && len >= 1) {
         let blog = this.props.blogs[blogKeys[i]];
-        console.log(`blog:`);
-        console.dir(blog);
         blogLis.push(
           <li key={i}>
             <BlogLinkContainer blog={ blog }
               isSplash={ this.props.isSplash } />
           </li>
         );
+        i++;
+        len--;
       }
     } else {
       blogLis = Object.keys(this.props.blogs).map((id, i) => (
@@ -87,3 +84,10 @@ class Blogs extends React.Component {
 }
 
 export default Blogs;
+
+// console.log(`this.props.blogs:`);
+// console.dir(this.props.blogs);
+// console.log(`blogKeys:`);
+// console.dir(blogKeys);
+// console.log(`blog:`);
+//   console.dir(blog);
