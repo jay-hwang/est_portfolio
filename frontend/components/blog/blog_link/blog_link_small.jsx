@@ -2,10 +2,7 @@ import React from 'react';
 import BlogActions from '../helper/blog_actions';
 
 const BlogLinkSmall = props => {
-  console.log(`props: ${props}`);
-  console.log(`props.blog: ${props.blog}`);
   const blogLinkInfoId = `blog-link-info-${props.blog.id}`;
-  console.log(`blogLinkInfoId: ${blogLinkInfoId}`);
 
   const showInfo = () => {
     $(`#${blogLinkInfoId}`).fadeIn();
