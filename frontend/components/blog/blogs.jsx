@@ -10,6 +10,7 @@ class Blogs extends React.Component {
   }
 
   componentDidMount() {
+    console.log('blogs component did mount');
     this.props.requestBlogs({});
   }
 

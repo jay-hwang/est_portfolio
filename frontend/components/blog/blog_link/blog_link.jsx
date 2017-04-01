@@ -12,6 +12,10 @@ class BlogLink extends React.Component {
     this.handleBlogShow = this.handleBlogShow.bind(this);
   }
 
+  componentDidMount() {
+    console.log('blog_link component did mount');
+  }
+
   handleEdit(e) {
     e.stopPropagation();
     this.props.router.push(`/blogs/edit/${this.props.blog.id}`);
