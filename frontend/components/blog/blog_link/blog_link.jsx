@@ -31,7 +31,7 @@ class BlogLink extends React.Component {
   }
 
   render() {
-    debugger;
+    console.log(`blog_link.jsx this.props.blog: ${this.props.blog}`);
     if (this.props.isSplash || this.props.isUserBlogs) {
       return (
         <div>
