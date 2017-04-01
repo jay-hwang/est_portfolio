@@ -13,6 +13,7 @@ class BlogLink extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     console.log('blog_link component did mount');
   }
 
@@ -35,6 +36,7 @@ class BlogLink extends React.Component {
   }
 
   render() {
+    debugger;
     if (this.props.isSplash || this.props.isUserBlogs) {
       return (
         <div>
