@@ -40,7 +40,8 @@ class SubscriptionForm extends React.Component {
 
     return (
       <div className='subscribe-container display-none'>
-        <div className='subscribe'>
+
+        <div className='subscribe desktop'>
           <span className='second-title'>SUBSCRIBE</span>
           <span className='exit' onClick={ this.closeSubscriptionForm }>X</span>
 
@@ -58,7 +59,26 @@ class SubscriptionForm extends React.Component {
               placeholder='Email' />
             <button className='subscribe-submit-btn btn'>SUBSCRIBE</button>
           </form>
+        </div>
 
+        <div className='subscribe-mobile mobile'>
+          <span className='second-title'>SUBSCRIBE</span>
+          <span className='exit' onClick={ this.closeSubscriptionForm }>X</span>
+
+          <form className='subscribe-form' onSubmit={ this.handleSubmit }>
+            { this.errorsLi }
+            <input type='text'
+              onChange={ this.handleChange('name') }
+              value={ this.state.name }
+              className='subscribe-field'
+              placeholder='Full Name' />
+            <input type='text'
+              onChange={ this.handleChange('email') }
+              value={ this.state.email }
+              className='subscribe-field'
+              placeholder='Email' />
+            <button className='subscribe-submit-btn btn'>SUBSCRIBE</button>
+          </form>
         </div>
       </div>
     );

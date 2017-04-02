@@ -1,17 +1,45 @@
 .intro {
   width: 100%;
-  height: 500px;
-  // min-height: 500px;
-  // height: auto;
+  // height: 500px;
+  min-height: 500px;
+  height: auto;
 
   display: flex;
 
   color: #fff;
 }
 
+.intro-img {
+  width: 43%;
+  min-height: 500px;
+  height: 100%;
+}
+
+#about-blog-img {
+  background: url('https://res.cloudinary.com/ddgtwtbre/image/upload/v1490822588/Screen_Shot_2017-03-29_at_2.10.18_PM_wk8b2c.png') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#about-est-img {
+  background: url('https://res.cloudinary.com/ddgtwtbre/image/upload/v1490822592/Screen_Shot_2017-03-29_at_2.15.35_PM_osvczv.png') no-repeat;
+  background-position: 33% 25%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .intro-meta {
   width: 57%;
+  min-height: 500px;
   height: 100%;
+
+  padding: 30px 0;
+
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -47,8 +75,29 @@
   padding: 15px;
 }
 
-.intro-img {
-  width: 43%;
-  height: 100%;
-  border: none;
+
+// MOBILE CSS
+
+.intro-mobile {
+  min-height: 700px;
+  width: 100%;
+  color: #fff;
+}
+
+.intro-img-mobile {
+  min-height: 400px;
+  width: 100%;
+}
+
+.intro-meta-mobile {
+  min-height: 300px;
+  height: auto;
+  width: 100%;
+
+  padding: 25px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

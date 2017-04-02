@@ -25,7 +25,8 @@ class Blogs extends React.Component {
     } else if (this.props.isSplash) {
       let blogKeys = Object.keys(this.props.blogs);
       if (blogKeys.length === 0) { return []; }
-      for (let i = 0; i < 6; i++) {
+      let i = 0, len = blogKeys.length;
+      while (blogLis.length < 6 && len >= 1) {
         let blog = this.props.blogs[blogKeys[i]];
         blogLis.push(
           <li key={i}>
@@ -33,6 +34,8 @@ class Blogs extends React.Component {
               isSplash={ this.props.isSplash } />
           </li>
         );
+        i++;
+        len--;
       }
     } else {
       blogLis = Object.keys(this.props.blogs).map((id, i) => (

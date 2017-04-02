@@ -21,6 +21,13 @@ class NavbarMenu extends React.Component {
     $('.loginli').fadeIn(350);
   }
 
+  hideMobileMenu() {
+    $('.menu-background').fadeOut(200);
+    $('.menu-mobile').fadeOut(200);
+    $('.session').slideUp();
+    $('.loginli').fadeIn(350);
+  }
+
   showSessionForm() {
     $('.session').slideDown();
     $('.loginli').fadeOut(350);
@@ -51,8 +58,19 @@ class NavbarMenu extends React.Component {
   render() {
     return (
       <div className='menu-background display-none'>
-        <div className='menu'>
+        <div className='menu desktop'>
           <span className='exit' id='navmenu-exit' onClick={ this.hideMenu }>x</span>
+          <ul className='menu-ul'>
+            <li className='menu-li' onClick={ this.homeClick }>HOME</li>
+            <div className='divider'></div>
+            <li className='menu-li' onClick={ this.blogsClick }>BLOGS</li>
+            <div className='divider'></div>
+            { this.sessionMenu() }
+          </ul>
+        </div>
+
+        <div className='menu-mobile mobile'>
+          <span className='exit' id='navmenu-exit' onClick={ this.hideMobileMenu }>x</span>
           <ul className='menu-ul'>
             <li className='menu-li' onClick={ this.homeClick }>HOME</li>
             <div className='divider'></div>

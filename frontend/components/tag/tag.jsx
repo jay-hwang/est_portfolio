@@ -26,8 +26,7 @@ class Tag extends React.Component {
       this.props.updateTagFilter(this.props.tag, this.state.isActive);
       this.toggleState();
     } else {
-      // console.log('will re-route to currentTag.blogs page here');
-      // this.props.router.push('/');
+      // default
     }
   }
 
