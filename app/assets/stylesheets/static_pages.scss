@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media screen and (max-width: 810px) {
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: display !important;
+  }
+}
+
+@media screen and (min-width: 811px) {
+  .desktop {
+    display: flex !important;
+  }
+
+  .mobile {
+    display: none !important;
+  }
+}
+
 #app, body, html {
   // background-color: whitesmoke;
 }
