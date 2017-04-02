@@ -22,8 +22,31 @@ export const _mapErrorsToHTML = errors => (
 );
 
 export const _getCurrentUser = store => {
-  return () => { 
+  return () => {
     let id = store.getState().session.currentUser.id;
     store.dispatch(requestUser(id));
   };
+};
+
+const MONTHS = {
+  '01': 'JAN',
+  '02': 'FEB',
+  '03': 'MAR',
+  '04': 'APR',
+  '05': 'MAY',
+  '06': 'JUN',
+  '07': 'JUL',
+  '08': 'AUG',
+  '09': 'SEP',
+  '10': 'OCT',
+  '11': 'NOV',
+  '12': 'DEC'
+};
+
+export const _parseTime = time => {
+  let date = time.split('T')[0].split('-');
+  let year  = date[0],
+      month = MONTHS[date[1]],
+      day   = date[2];
+  return `${day}, ${month} ${year}`;
 };

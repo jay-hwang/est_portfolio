@@ -7,7 +7,6 @@
   display: flex;
 
   color: #fff;
-  background-color: lightgreen;
 }
 
 .intro-img {
@@ -25,7 +24,8 @@
 }
 
 #about-est-img {
-  background: url('https://res.cloudinary.com/ddgtwtbre/image/upload/v1490822592/Screen_Shot_2017-03-29_at_2.15.35_PM_osvczv.png')no-repeat center center;
+  background: url('https://res.cloudinary.com/ddgtwtbre/image/upload/v1490822592/Screen_Shot_2017-03-29_at_2.15.35_PM_osvczv.png') no-repeat;
+  background-position: 33% 25%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

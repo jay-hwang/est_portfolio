@@ -103,7 +103,7 @@
 .blog-content {
   height: auto;
   width: 100%;
-  min-width: 850px;
+  min-width: 540px;
 
   margin: 0 auto;
   margin-bottom: 60px;
@@ -119,7 +119,8 @@
 
 .blink-img {
   max-height: 500px;
-  height: 500px;
+  min-height: 300px;
+  height: auto;
   width: 100%;
   background-color: #eaeaea;
 

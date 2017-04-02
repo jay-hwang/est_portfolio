@@ -21,7 +21,7 @@ class RelatedBlogs extends React.Component {
     while (relatedBlogs.length < 3 && len >= 1) {
       if (parseInt(blogIds[i]) !== this.props.blog.id) {
         relatedBlogs.push(
-          <li key={i}>
+          <li className='related-blog-li' key={i}>
             <RelatedBlog blog={ this.props.blogs[blogIds[i]] } />
           </li>
         );

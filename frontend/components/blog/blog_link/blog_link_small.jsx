@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogActions from '../helper/blog_actions';
+import { _parseTime } from '../../../util/helper_methods';
 
 const BlogLinkSmall = props => {
   const blogLinkInfoId = `blog-link-info-${props.blog.id}`;
@@ -11,6 +12,8 @@ const BlogLinkSmall = props => {
   const hideInfo = () => {
     $(`#${blogLinkInfoId}`).fadeOut();
   };
+
+
 
   return (
     <div className='blog-link' onMouseEnter={ showInfo }
@@ -26,7 +29,7 @@ const BlogLinkSmall = props => {
           <div className='blog-link-divider'></div>
 
           <div className='blog-intro'>
-            { props.blog.created_at }
+            { _parseTime(props.blog.created_at) }
           </div>
         </div>
 

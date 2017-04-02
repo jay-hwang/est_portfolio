@@ -2,7 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 const RelatedBlog = ({ blog, router }) => {
-  const handleClick = () => router.push(`/blogs/${blog.id}`);
+  const handleClick = () => {
+    router.push(`/blogs/${blog.id}`);
+    window.scrollTo(0,0);
+  };
 
   if (blog) {
     return (
