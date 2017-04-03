@@ -53,7 +53,7 @@ class Blog extends React.Component {
       return (
         <div className='blog-bg'>
           <div className='blog'>
-            <div className='blog-content'>
+            <div className='blog-content desktop'>
               <div className='blink-img'>
                 <img className='blog-img' src={ blog.image_url } />
               </div>
@@ -70,7 +70,25 @@ class Blog extends React.Component {
               <RelatedBlogsContainer blog={ blog }
                 requestBlog={ this.props.requestBlog }
                 requestBlogs={ this.props.requestBlogs } />
+            </div>
 
+            <div className='blog-content-mobile mobile'>
+              <div className='blink-img'>
+                <img className='blog-img-mobile' src={ blog.image_url } />
+              </div>
+
+              <div className='blink-intro-mobile'>
+                <span className='blink-title'>{ blog.title }</span>
+                <p className='blink-body'>
+                  { blog.body }
+                </p>
+              </div>
+
+              <BlogTagsContainer blog={ blog } />
+
+              <RelatedBlogsContainer blog={ blog }
+                requestBlog={ this.props.requestBlog }
+                requestBlogs={ this.props.requestBlogs } />
             </div>
 
             <CommentFormContainer blog={ blog } />

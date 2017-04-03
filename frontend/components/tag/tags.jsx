@@ -50,14 +50,33 @@ class Tags extends React.Component {
     this.props.requestBlogs(Object.keys(this.tagFilters));
   }
 
+  hideTagsMobile(e) {
+    e.stopPropagation();
+    $('.tags-box-mobile').slideUp();
+    $('.filters-mobile').fadeIn();
+  }
+
   render() {
     let tags = this.props.isBlogTags ? this.mapBlogTags() : this.mapTags();
 
     return (
-      <div className='tags-box'>
-        <h3 className='tag-header'>TAGS</h3>
-        <div className='tags'>
-          { tags }
+      <div>
+        <div className='desktop'>
+          <div className='tags-box'>
+            <h3 className='tag-header'>TAGS</h3>
+            <div className='tags'>
+              { tags }
+            </div>
+          </div>
+        </div>
+
+        <div className='mobile'>
+          <div className='tags-box-mobile'>
+            <div className='tags-exit' onClick={ this.hideTagsMobile }>x</div>
+            <div className='tags-mobile'>
+              { tags }
+            </div>
+          </div>
         </div>
       </div>
     );

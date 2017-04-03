@@ -13,8 +13,8 @@ const BlogLinkSmall = props => {
     $(`#${blogLinkInfoId}`).fadeOut();
   };
 
-
-
+  // To keep image size from getting squished, try making
+  // height: 100 & overflow-x: hidden, and flex center
   return (
     <div className='blog-link' onMouseEnter={ showInfo }
       onMouseLeave={ hideInfo } onClick={ props.handleBlogShow }>

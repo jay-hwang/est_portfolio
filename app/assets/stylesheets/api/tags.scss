@@ -6,6 +6,20 @@
   margin: 60px auto;
 }
 
+.tags-box-mobile {
+  display: none;
+  position: absolute;
+  top: 60;
+
+  z-index: 100;
+
+  width: 100%;
+
+  background-color: #fff;
+  border-bottom: 1px solid lightgrey;
+  padding: 7px 0;
+}
+
 .tags {
   width: 100%;
 
@@ -13,6 +27,20 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
+
+  margin: 0px auto;
+  padding-left: 10px;
+
+  box-sizing: border-box;
+}
+
+.tags-mobile {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
   margin: 0px auto;
   padding-left: 10px;
@@ -112,4 +140,16 @@
 .new-tags-btn:hover {
   color: #fff;
   background-color: #2e3842;;
+}
+
+.tags-exit {
+
+  text-align: right;
+  padding-right: 10px;
+  float: right;
+  width: 25px;
+
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
 }

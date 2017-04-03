@@ -11,7 +11,8 @@ const RelatedBlog = ({ blog, router }) => {
     return (
       <div className='related-blog' onClick={ handleClick }>
         <div className='related-blog-img'>
-          <img className='related-blog-img-content' src={ blog.image_url } />
+          <img className='related-blog-img-content desktop' src={ blog.image_url } />
+          <img className='related-blog-img-content-mobile mobile' src={ blog.image_url } />
         </div>
         <p className='related-blog-text'>
           { blog.title }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { _parseTime } from '../../util/helper_methods';
 
 const DeleteCommentBtn = ({ props }) => {
   const handleDelete = () => props.deleteComment(props.comment.id);
@@ -23,7 +24,9 @@ const Comment = props => {
     <div className='comment'>
       <div className='comment-head'>
         <h4 className='comment-author'>{ props.comment.author_name }</h4>
-        <span className='comment-date'>{ props.comment.created_at }</span>
+        <span className='comment-date'>
+          { _parseTime(props.comment.created_at) }
+        </span>
       </div>
 
       <p className='comment-body'>

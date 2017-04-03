@@ -72,11 +72,20 @@ class Blogs extends React.Component {
       );
     } else {
       return (
-        <div className='blogs-index'>
-          <section className='blogs-box-large'>
-            <ul className='blogs-large'>{ blogLis }</ul>
-          </section>
-          <BlogFilterContainer />
+        <div>
+          <div className='blogs-index desktop'>
+            <section className='blogs-box-large desktop'>
+              <ul className='blogs-large'>{ blogLis }</ul>
+            </section>
+            <BlogFilterContainer />
+          </div>
+
+          <div className='blogs-index mobile'>
+            <section className='blogs-box-large-mobile mobile'>
+              <BlogFilterContainer isMobile={ true } />
+              <ul className='blogs-large'>{ blogLis }</ul>
+            </section>
+          </div>
         </div>
       );
     }

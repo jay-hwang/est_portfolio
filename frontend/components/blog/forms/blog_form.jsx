@@ -120,7 +120,7 @@ class BlogForm extends React.Component {
     return (
       <div className='blog-bg'>
         <div className='blog'>
-          <form className='blog-content blog-form' onSubmit={ this.handleSubmit }>
+          <form className='blog-content blog-form desktop' onSubmit={ this.handleSubmit }>
             { this.errorsLi }
 
             <div className='blink-img'
@@ -130,6 +130,37 @@ class BlogForm extends React.Component {
             </div>
 
             <div className='blink-intro'>
+              <Textarea onChange={ this.handleChange('title') }
+                value={ this.state.title }
+                placeholder='Title'
+                className='blink-title blog-input'>
+              </Textarea>
+
+              <Textarea className='blink-body blog-body-input blog-input'
+                value={ this.state.body }
+                placeholder='Write about your blog here'
+                onChange={ this.handleChange('body') }>
+              </Textarea>
+            </div>
+
+            <TaggingsFormContainer blogId={ this.blogId }
+              isNew={ this.props.isNew }
+              queueTaggingAction={ this.queueTaggingAction } />
+
+            <button className='blog-submit-btn btn'>{ this.formType } BLOG</button>
+          </form>
+
+          <form className='blog-content-mobile blog-form mobile'
+            onSubmit={ this.handleSubmit }>
+            { this.errorsLi }
+
+            <div className='blink-img'
+              onMouseLeave={ this.hideUploadButton }
+              onMouseEnter={ this.showUploadButton }>
+              { imageSection }
+            </div>
+
+            <div className='blink-intro-mobile'>
               <Textarea onChange={ this.handleChange('title') }
                 value={ this.state.title }
                 placeholder='Title'

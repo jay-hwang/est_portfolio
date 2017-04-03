@@ -48,5 +48,5 @@ export const _parseTime = time => {
   let year  = date[0],
       month = MONTHS[date[1]],
       day   = date[2];
-  return `${day}, ${month} ${year}`;
+  return `${day} ${month} ${year}`;
 };

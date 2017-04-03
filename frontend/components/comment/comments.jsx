@@ -35,11 +35,20 @@ class Comments extends React.Component {
     let commentLis = this.mapComments();
 
     return (
-      <div className='blog-content'>
-        <h3 className='header'>COMMENTS</h3>
-        <ul className='comments'>
-          { commentLis }
-        </ul>
+      <div>
+        <div className='blog-content desktop'>
+          <h3 className='header'>COMMENTS</h3>
+          <ul className='comments'>
+            { commentLis }
+          </ul>
+        </div>
+
+        <div className='blog-content-mobile mobile'>
+          <h3 className='header'>COMMENTS</h3>
+          <ul className='comments'>
+            { commentLis }
+          </ul>          
+        </div>
       </div>
     );
   }

@@ -41,11 +41,12 @@
 }
 
 .blog {
-  width: 80%;
+  width: 100%;
   height: auto;
   margin: 0 auto;
   margin-top: 60px;
-  padding: 60px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .blog-body {
@@ -67,8 +68,12 @@
 
 .blog-img {
   width: 100%;
-  // height: 100%;
   height: 50vw;
+}
+
+.blog-img-mobile {
+  width: 100%;
+  height: 65vw;
 }
 
 // Blog Helper Components CSS
@@ -87,20 +92,18 @@
 }
 
 .blog-action {
-  // width: 80px;
   height: 25px;
-
   color: #fff;
+  padding: 0 10px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
 }
 
 .blog-action:hover {
   cursor: pointer;
   color: #fff;
-  // background-color: #2e3842;
   background: rgba(255,255,255,0.5);
 }
 

@@ -91,18 +91,30 @@
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;;
+  align-items: flex-start;
+}
+
+.blogs-box-large-mobile {
+  width: 100%;
+  overflow-y: scroll;
+
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .blogs-large {
   background-color: whitesmoke;
   width: 100%;
-  padding: 50px;
+  // padding: 50px;
+  padding-top: 50px;
 }
 
 .blog-content {
   height: auto;
-  width: 100%;
+  width: 80%;
   min-width: 540px;
 
   margin: 0 auto;
@@ -113,13 +125,26 @@
   box-shadow: 0 0 10px #aaaaaa;
 
   background-color: #fff;
+  position: relative;
+}
 
+.blog-content-mobile {
+  height: auto;
+  width: 90%;
+
+  margin: 0 auto;
+  margin-bottom: 60px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px #aaa;
+
+  background-color: #fff;
   position: relative;
 }
 
 .blink-img {
   max-height: 500px;
-  min-height: 300px;
   height: auto;
   width: 100%;
   background-color: #eaeaea;
@@ -134,6 +159,18 @@
   height: auto;
   background-color: #fff;
   padding: 0 100px;
+  padding-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blink-intro-mobile {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 0 50px;
   padding-top: 80px;
 
   display: flex;
@@ -173,4 +210,9 @@
 .blink-more:hover {
   color: #fff;
   background-color: #2e3842;
+}
+
+.blink-large-box {
+  padding-top: 30px;
+  width: 100%;
 }
