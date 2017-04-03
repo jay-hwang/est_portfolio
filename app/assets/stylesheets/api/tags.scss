@@ -30,7 +30,6 @@
 
   margin: 0px auto;
   padding-left: 10px;
-
   box-sizing: border-box;
 }
 
@@ -90,13 +89,10 @@
   padding: 10px;
 
   width: 100%;
-  // border-bottom: 1px solid #2e3842;
   margin: 0 auto;
-  // background-color: blue;
 }
 
 .taggings {
-  // width: 850px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -143,7 +139,6 @@
 }
 
 .tags-exit {
-
   text-align: right;
   padding-right: 10px;
   float: right;

@@ -113,7 +113,10 @@ class BlogForm extends React.Component {
       );
     } else {
       imageSection.push(
-        <img key={ Math.random() } className='blog-img' src={ this.state.image_url } />
+        <div className='update-bimg'>
+          <img key={ Math.random() } className='blog-img' src={ this.state.image_url } />
+          <UploadButton key={ Math.random() } addImage={ this.addImage } />
+        </div>
       );
     }
 

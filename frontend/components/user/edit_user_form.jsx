@@ -6,6 +6,7 @@ class EditUserForm extends React.Component {
 
     this.state = {
       id: props.currentUser.id,
+      username: props.currentUser.username,
       first_name: props.currentUser.first_name,
       last_name: props.currentUser.last_name,
       email: props.currentUser.email
@@ -74,6 +75,15 @@ class EditUserForm extends React.Component {
             value={ this.state.last_name }
             onChange={ this.handleChange('last_name') }
             placeholder='LAST NAME' />
+        </div>
+
+        <div className='user-content'>
+          <p className='eui-name'>USERNAME</p>
+          <input type='text'
+            className='eui-value'
+            value={ this.state.username }
+            onChange={ this.handleChange('username') }
+            placeholder='USERNAME' />
         </div>
 
         <div className='user-content'>

@@ -15,6 +15,11 @@ class Api::BlogsController < ApplicationController
   def index
     blogs = Blog.all
     blogs = Blog.find_by_tags(params[:tags]) if params[:tags]
+    # byebug
+    # blogs.each do |blog|
+    #   blog.body = blog.body.gsub("\n", "<br />").html_safe
+    # end
+    # byebug
     @blogs = blogs
   end
 

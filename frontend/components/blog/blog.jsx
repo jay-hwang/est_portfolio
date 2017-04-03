@@ -43,6 +43,7 @@ class Blog extends React.Component {
 
   render() {
     let blog = this.mapBlog();
+
     if (!blog) {
       return (
         <div></div>

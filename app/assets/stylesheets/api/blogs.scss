@@ -69,6 +69,11 @@
 .blog-img {
   width: 100%;
   height: 50vw;
+  max-height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .blog-img-mobile {
