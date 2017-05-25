@@ -4,11 +4,11 @@ const UploadButton = props => {
   const upload = e => {
     e.preventDefault();
     cloudinary.openUploadWidget(
-      window.cloudinary_options,
-      (error, images) => {
+      window.cloudinary_options, (error, images) => {
         if (error) {
           // something went wrong
-        } else {
+        }
+        else {
           props.addImage(images[0].url);
         }
       }

@@ -7,11 +7,11 @@ class NavbarMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.hideMenu = this.hideMenu.bind(this);
+    this.hideMenu        = this.hideMenu.bind(this);
     this.showSessionForm = this.showSessionForm.bind(this);
-    this.sessionMenu = this.sessionMenu.bind(this);
-    this.homeClick = this.homeClick.bind(this);
-    this.blogsClick = this.blogsClick.bind(this);
+    this.sessionMenu     = this.sessionMenu.bind(this);
+    this.homeClick       = this.homeClick.bind(this);
+    this.blogsClick      = this.blogsClick.bind(this);
   }
 
   hideMenu() {
@@ -38,7 +38,8 @@ class NavbarMenu extends React.Component {
       return (
         <UserMenuContainer hideMenu={ this.hideMenu } />
       );
-    } else {
+    }
+    else {
       return (
         <SessionFormContainer hideMenu={ this.hideMenu } />
       );
@@ -83,7 +84,5 @@ class NavbarMenu extends React.Component {
     );
   }
 }
-// <div className='divider'></div>
-// <li className='menu-li'>ABOUT</li>
 
 export default withRouter(NavbarMenu);

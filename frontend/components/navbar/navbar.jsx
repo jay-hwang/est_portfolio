@@ -17,11 +17,11 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <NavbarLinks openSubscribe={ this.openSubscribe } />
+        <NavbarLinks openSubscribe={this.openSubscribe} />
         <div className='hidden-nav display-none'>
-          <NavbarLinks openSubscribe={ this.openSubscribe } />
+          <NavbarLinks isHiddenNav={true} openSubscribe={this.openSubscribe} />
         </div>
-        <NavbarMenuContainer props={ this.props } />
+        <NavbarMenuContainer props={this.props} />
       </div>
     );
   }

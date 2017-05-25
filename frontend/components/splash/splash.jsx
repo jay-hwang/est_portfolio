@@ -15,32 +15,29 @@ class Splash extends React.Component {
     return (
       <div>
         <div className='splash-bg'></div>
-          <div className='screen'>
+        <div className='veil'></div>
+        <div className='screen'>
+          <div className='splash'>
+            <div className='content'>
+              <div className='title'>
+                TACKLING TRAFFICKING
+              </div>
 
-            <div className='splash'>
-              <div className='content'>
-                <div className='title'>
-                  TACKLING TRAFFICKING
-                </div>
-
-                <div className='info'>
-                  Some thoughts on Problematising the solutions to Human Trafficking
-                </div>
+              <div className='info'>
+                Some thoughts on Problematising the solutions to Human Trafficking
               </div>
             </div>
-
-            <Intro1 />
-            <Intro2 />
-            <BlogsContainer isSplash={ true } blogs={ this.props.blogs } />
-            <Contact />
-
           </div>
+
+          <Intro1 />
+          <Intro2 />
+          <BlogsContainer isSplash={ true } blogs={ this.props.blogs } />
+          <Contact />
           <Footer />
+        </div>
       </div>
     );
   }
 }
 
 export default withRouter(Splash);
-
-//

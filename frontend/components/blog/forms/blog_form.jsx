@@ -8,38 +8,33 @@ class BlogForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.hasBlog = false;
-    this.blogId = this.props.routeParams.blog_id;
-    this.formType = this.props.isNew ? 'CREATE' : 'UPDATE';
-
-    this.state = {
+    this.hasBlog                = false;
+    this.blogId                 = this.props.routeParams.blog_id;
+    this.formType               = this.props.isNew ? 'CREATE' : 'UPDATE';
+    this.taggingActions         = [];
+    this.dispatchTaggingActions = this.dispatchTaggingActions.bind(this);
+    this.queueTaggingAction     = this.queueTaggingAction.bind(this);
+    this.handleSubmit           = this.handleSubmit.bind(this);
+    this.handleChange           = this.handleChange.bind(this);
+    this.addImage               = this.addImage.bind(this);
+    this.initBlog               = this.initBlog.bind(this);
+    this.state                  = {
       id: this.blogId ? this.blogId : null,
       author_id: this.props.currentUser.id,
       title: '',
       body: '',
       image_url: ''
     };
-    this.taggingActions = [];
-
-    this.dispatchTaggingActions = this.dispatchTaggingActions.bind(this);
-    this.queueTaggingAction = this.queueTaggingAction.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.addImage = this.addImage.bind(this);
-    this.initBlog = this.initBlog.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.isNew) {
-      this.props.requestBlog(this.blogId);
-    }
+    if (!this.props.isNew) { this.props.requestBlog(this.blogId); }
   }
 
   componentDidUpdate() {
     if (this.props.messages.success) {
       this.dispatchTaggingActions();
-      this.props.router.push('/blogs/user');
-    }
+      this.props.router.push('/blogs/user');  }
     if (!this.props.isNew) { this.initBlog(); }
   }
 
@@ -73,12 +68,11 @@ class BlogForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const blog = this.state;
-
     if (this.props.isNew) {
-      this.props.createBlog(blog);
-    } else {
-      this.props.updateBlog(blog, this.props.router);
+      this.props.createBlog(this.state);
+    }
+    else {
+      this.props.updateBlog(this.state, this.props.router);
     }
   }
 
@@ -100,18 +94,19 @@ class BlogForm extends React.Component {
 
   render() {
     const errors = this.props.errors;
+    let imageSection = [];
+    
     if (errors) {
       this.errorsLi = errors.map((error, i) => (
         <li key={i} className='error'>{ error }</li>
       ));
     }
-
-    let imageSection = [];
     if (this.state.image_url.length === 0) {
       imageSection.push(
         <UploadButton key={ Math.random() } addImage={ this.addImage } />
       );
-    } else {
+    }
+    else {
       imageSection.push(
         <div className='update-bimg'>
           <img key={ Math.random() } className='blog-img' src={ this.state.image_url } />

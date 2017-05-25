@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser } };
     store = configureStore(preloadedState);
-  } else {
+  }
+  else {
     store = configureStore();
   }
 
@@ -18,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   $(window).scroll(function() {
     let y = $(this).scrollTop();
     if (y > 500) {
-      $('.hidden-nav').fadeIn(300);
-    } else {
-      $('.hidden-nav').fadeOut(300);
+      $('.hidden-nav').fadeIn();
+    }
+    else {
+      $('.hidden-nav').fadeOut();
     }
   });
 

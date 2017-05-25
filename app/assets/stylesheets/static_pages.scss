@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @media screen and (max-width: 810px) {
-// @media only screen and (max-device-width: 810px) {
-
   .desktop {
     display: none !important;
   }
@@ -16,7 +14,6 @@
 }
 
 @media screen and (min-width: 811px) {
-// @media only screen and (max-device-width: 811px) {
   .desktop {
     display: flex !important;
   }
