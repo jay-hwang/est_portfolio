@@ -21,3 +21,4 @@ bundle.js*
 /config/application.yml
 
 /config/cloudinary.yml
+issues
