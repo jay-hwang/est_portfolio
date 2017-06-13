@@ -1,10 +1,19 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Intro from './intro/intro';
 import Intro1 from '../intro/intro1';
 import Intro2 from '../intro/intro2';
 import BlogsContainer from '../blog/blogs_container';
 import Contact from '../contact/contact';
 import Footer from '../footer/footer';
+
+// const Splash = props => {
+//   return (
+//     <div className='splash'>
+//       <Intro />
+//     </div>
+//   );
+// };
 
 class Splash extends React.Component {
   constructor(props) {
@@ -13,7 +22,7 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='splash-container'>
         <div className='splash-bg'></div>
         <div className='veil'></div>
         <div className='screen'>

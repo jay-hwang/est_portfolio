@@ -10,10 +10,10 @@ class App extends React.Component {
   }
 
   render() {
+    // <Navbar />
+    // <SubscriptionFormContainer />
     return (
       <div id='app'>
-        <Navbar />
-        <SubscriptionFormContainer />
         {this.props.children}
       </div>
     );
