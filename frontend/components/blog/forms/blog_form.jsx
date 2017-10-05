@@ -18,6 +18,7 @@ class BlogForm extends React.Component {
     this.handleChange           = this.handleChange.bind(this);
     this.addImage               = this.addImage.bind(this);
     this.initBlog               = this.initBlog.bind(this);
+    
     this.state                  = {
       id: this.blogId ? this.blogId : null,
       author_id: this.props.currentUser.id,
@@ -95,7 +96,7 @@ class BlogForm extends React.Component {
   render() {
     const errors = this.props.errors;
     let imageSection = [];
-    
+
     if (errors) {
       this.errorsLi = errors.map((error, i) => (
         <li key={i} className='error'>{ error }</li>

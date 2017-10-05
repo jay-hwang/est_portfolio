@@ -11,9 +11,7 @@ const NavbarLinks = ({ isHiddenNav, openSubscribe }) => {
     return (
       <nav className='navbar'>
         <div className='box'>
-          <button
-            onClick={ openSubscribe }
-            className='nav-btn btn hel'>SUBSCRIBE</button>
+          <button onClick={ openSubscribe } className='nav-btn btn hel'>SUBSCRIBE</button>
         </div>
         <div className='box menu-box' onClick={ showMenu }>
           <span className='nav-menu hel'>MENU</span>
@@ -30,9 +28,7 @@ const NavbarLinks = ({ isHiddenNav, openSubscribe }) => {
     return (
       <nav className='navbar'>
         <div className='box'>
-          <button
-            onClick={ openSubscribe }
-            className='nav-btn btn'>SUBSCRIBE</button>
+          <button onClick={ openSubscribe } className='nav-btn btn'>SUBSCRIBE</button>
         </div>
         <div className='box menu-box' onClick={ showMenu }>
           <span className='nav-menu'>MENU</span>

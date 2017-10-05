@@ -6,7 +6,6 @@ import NavbarMenuContainer from './navbar_menu_container';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-
     this.openSubscribe = this.openSubscribe.bind(this);
   }
 
